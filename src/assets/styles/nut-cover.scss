@@ -1,0 +1,31 @@
+.nr-shadow-top {
+  box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.4);
+}
+.nut-checkbox__label {
+  margin-left: 6px;
+}
+.nut-cell-group__warp {
+  margin: 0;
+}
+.nut-cell-group__warp {
+  border-radius: 0;
+}
+
+.textarea-placeholder {
+  color: #ccc !important;
+}
+.nut-placeholder {
+  color: #ccc !important;
+}
+.nut-textarea__textarea {
+  color: #6b7280 !important;
+}
+.van-tabs__line {
+  --tabs-bottom-bar-color: var(--nr-primary);
+}
+
+button {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1;
+}

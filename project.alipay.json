@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "newrizon-app",
+  "description": "newrizon-app",
+  "appid": "2021003122644696",
+  "compileType": "mini",
+  "component2": true,
+  "enableAppxNg": true
+}

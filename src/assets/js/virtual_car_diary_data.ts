@@ -1,0 +1,22 @@
+export const vrData = {
+  code: 200,
+  msg: '操作成功',
+  data: {
+    img: 'https://nrz-app.su.bcebos.com/vehicle/EC1/ec1_behavior_bg.jpg',
+    totalRoadHaul: 18976,
+    roadHaul: 1812,
+    time: 3,
+    mph: 60,
+    energyConsumption: 19,
+    chargeTimes: 3,
+    chargeHours: 4,
+    chargePower: 75,
+    timeR: -9.01,
+    roadHaulR: 12.67,
+    mphR: 3,
+    energyConsumptionR: 0,
+    chargeTimesR: -12.11,
+    chargeHoursR: 7,
+    chargePowerR: 8.88,
+  },
+};

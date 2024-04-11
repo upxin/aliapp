@@ -1,0 +1,17 @@
+export const vrData = {
+  vin: 'HMZABAAH7MF014493',
+  scoreBody: 92.7846,
+  scoreBattery: 98.7655,
+  scoreTravelActions: 99.0,
+  scoreMaintenance: 100.0,
+  scoreTotal: 96.42,
+  computeDate: '2023-02-01',
+  scoreBodyPercentage: 80,
+  scoreBatteryPercentage: 90,
+  travelActionsPercentage: 80,
+  scoreMaintenancePercentage: 100,
+  nextCalculateDate: '2023-05-01',
+  scoreName: '牛指·大法师',
+  vehicleName: '沪AD11111',
+  licensePlateNumber: '沪AD11111',
+};

@@ -1,0 +1,117 @@
+.nrz-dialog {
+  position: fixed;
+  z-index: 5000;
+  top: 50%;
+  left: 30px;
+  right: 30px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transition: all 2s ease-in;
+  transform: translateY(-50%);
+}
+.nrz-dialog__mask {
+  position: fixed;
+  z-index: 4000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+  transition: all 0.2s ease-in;
+}
+.nrz-dialog__hd {
+  padding: 16px 24px;
+}
+
+.nrz-dialog__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.nrz-dialog__bd {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 24px;
+  margin-bottom: 22px;
+  font-size: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.nrz-dialog__ft {
+  display: flex;
+  position: relative;
+  line-height: 54px;
+  height: 54px;
+  font-size: 17px;
+}
+
+.nrz-dialog__ft:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+
+.nrz-dialog__btn {
+  display: block;
+  flex: 1;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: relative;
+}
+
+.nrz-dialog__btn:active {
+  background-color: #ececec;
+}
+
+.nrz-dialog__btn:first-child::after {
+  width: 0;
+  border-left: 0;
+}
+
+.nrz-dialog__btn::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  transform-origin: 0 0;
+  transform: scaleX(0.5);
+}
+
+.nrz-dialog__mask.nrz-mask_hidden {
+  opacity: 0;
+  transform: scale3d(1, 1, 0);
+}
+.nrz-actionsheet-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nrz-mask-show {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
