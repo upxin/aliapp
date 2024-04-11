@@ -51,7 +51,7 @@ import { deliverProcessList } from '@/api/index';
 import { CODE, nrNavigateTo } from '@/utils/index';
 import FullLoading from '@/components/full-loading/index.vue';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 
 // let TYPE_MAP = {
 //   1: '《前晨汽车交付流程》',

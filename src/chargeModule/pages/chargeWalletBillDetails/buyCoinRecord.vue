@@ -86,7 +86,7 @@ import {
 
 import { store } from '@/stores/index';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 let buyList = ref<any[]>([]);
 let hasMore = ref(false);
 let initLg = ref(true);

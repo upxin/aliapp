@@ -31,7 +31,7 @@ import { useRouter } from '@tarojs/taro';
 import NrImg from '@/components/img/img.vue';
 import { CODE } from '@/utils/index';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 
 let CalcPt = computed(
   () => systemInfo().RightBtnRect.h + systemInfo().RightBtnRect.t + 10

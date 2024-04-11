@@ -174,7 +174,7 @@ import { nrNavigateTo } from '@/utils/index';
 import { store } from '@/stores/index';
 import NrzBtmPop from '@/components/nrz-bottom-popup/index.vue';
 import NrzBtn from '@/components/nrz-button/index.vue';
-definePageConfig({ navigationStyle: 'custom', enableShareAppMessage: true });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
 
 const color9 = '#999';
 const orange = 'rgb(249, 115, 22)';

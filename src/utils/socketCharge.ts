@@ -116,7 +116,7 @@ export function onMessage(res: any) {
 export function initSocket() {
   return new Promise((resolve) => {
     WebsocketHeartbeat({
-      miniprogram: wx,
+      miniprogram: my,
       connectSocketParams: {
         url: regUrl(),
       },

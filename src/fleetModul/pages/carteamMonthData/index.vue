@@ -74,10 +74,11 @@ import DropMenu from '../../comp/dropMenu/index.vue';
 import FullLoading from '@/components/full-loading/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+  transparentTitle: 'auto',
   titlePenetrate: 'YES',
-  defaultTitle: '',  usingComponents: {
-    'ec-canvas': '../../comp/ec-canvas/ec-canvas',
+  defaultTitle: '',
+  usingComponents: {
+    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
   },
 });
 

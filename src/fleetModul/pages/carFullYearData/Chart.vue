@@ -5,13 +5,13 @@
       <div class="bar"></div>
     </div>
     <view class="box-border w-full h-300px">
-      <ec-canvas :id="id" :canvas-id="`${id}_chart`" :ec="ec"></ec-canvas>
+      <!-- <ec-canvas :id="id" :canvas-id="`${id}_chart`" :ec="ec"></ec-canvas> -->
     </view>
   </section>
 </template>
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue';
-import * as echarts from '../../comp/ec-canvas/echarts.js';
+// import * as echarts from '../../comp/ec-canvas/echarts.js';
 interface ChartIns {
   setOption: (p: any) => void;
 }

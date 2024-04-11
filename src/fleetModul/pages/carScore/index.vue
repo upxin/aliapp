@@ -74,7 +74,7 @@ import { vrData } from './vr';
 import { loveCarStore } from '@/stores/index';
 import FullLoading from '@/components/full-loading/index.vue';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 const { headerHeight } = useHeaderHeight();
 const { draw, drawCircular } = useDraw();
 let activeColor = '#84C1E3';

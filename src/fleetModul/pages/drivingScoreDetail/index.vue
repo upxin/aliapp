@@ -93,7 +93,7 @@ export default {
 import { computed, onMounted, ref, reactive, watch } from 'vue';
 import CustomHeader from '@/components/customHeader/index.vue';
 import FullLoading from '@/components/full-loading/index.vue';
-import * as echarts from '../../comp/ec-canvas/echarts.js';
+// import * as echarts from '../../comp/ec-canvas/echarts.js';
 import { navigateToPage, YMD_CH, YMD_EN } from '@/utils/index';
 
 import { Routes, CODE } from '@/utils';
@@ -106,11 +106,12 @@ import Chart from '../carData/Chart.vue';
 import Taro from '@tarojs/taro';
 definePageConfig({
   usingComponents: {
-    'ec-canvas': '../../comp/ec-canvas/ec-canvas',
+    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
   },
- transparentTitle: 'auto',
+  transparentTitle: 'auto',
   titlePenetrate: 'YES',
-  defaultTitle: '',});
+  defaultTitle: '',
+});
 const { headerHeight } = useHeaderHeight();
 let params = useRouter()?.params;
 let menuVisible = ref(false);

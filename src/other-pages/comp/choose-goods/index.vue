@@ -124,7 +124,7 @@ import {
   USER_INFO,
 } from '@/utils/index';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 let BASE = 100000000;
 let props = withDefaults(
   defineProps<{ spuId: string; modelValue: boolean }>(),

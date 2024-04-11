@@ -111,7 +111,7 @@ import {
 import { useHeaderHeight, useModal } from '@/hooks/index';
 import { parseLisence, driverAddCar, getObuInfo } from '@/api/index';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 const { headerHeight } = useHeaderHeight();
 // bottom
 

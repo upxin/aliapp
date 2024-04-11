@@ -56,7 +56,7 @@ import { driverAddCar } from '@/api/index';
 import { useToast, CODE } from '@/utils/index';
 
 import Taro from '@tarojs/taro';
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 const formData = reactive({
   vin: '',
   // carName: '',

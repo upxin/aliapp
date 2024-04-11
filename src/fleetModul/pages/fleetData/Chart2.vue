@@ -1,6 +1,6 @@
 <template>
   <view id="tag" class="box-border w-full h-300px bg-fff">
-    <ec-canvas :id="cid" canvas-id="mileageChart-points" :ec="ec"></ec-canvas>
+    <!-- <ec-canvas :id="cid" canvas-id="mileageChart-points" :ec="ec"></ec-canvas> -->
     <!-- <div class="arc"></div> -->
     <view
       v-show="show"
@@ -18,7 +18,7 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
-import * as echarts from '../../comp/ec-canvas/echarts.js';
+// import * as echarts from '../../comp/ec-canvas/echarts.js';
 import { nrNavigateTo, VehInfo, Routes } from '@/utils';
 import { usePageScroll } from '@tarojs/taro';
 

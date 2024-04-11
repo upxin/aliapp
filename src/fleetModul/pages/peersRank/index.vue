@@ -145,7 +145,7 @@ definePageConfig({
  transparentTitle: 'auto',
   titlePenetrate: 'YES',
   defaultTitle: '',  usingComponents: {
-    'ec-canvas': '../../comp/ec-canvas/ec-canvas',
+    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
   },
 });
 let hasMore = ref(false);

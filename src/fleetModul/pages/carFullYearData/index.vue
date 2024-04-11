@@ -116,10 +116,11 @@ import NrzDateTime from '@/components/nrz-datetime/index.vue';
 import NrzCalendar from '@/components/nrz-calendar/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+  transparentTitle: 'auto',
   titlePenetrate: 'YES',
-  defaultTitle: '',  usingComponents: {
-    'ec-canvas': '../../comp/ec-canvas/ec-canvas',
+  defaultTitle: '',
+  usingComponents: {
+    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
   },
 });
 const datePicker = ref();

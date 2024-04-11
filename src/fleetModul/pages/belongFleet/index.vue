@@ -147,11 +147,9 @@ import {
 import { useHeaderHeight } from '@/hooks/index';
 import Chart from './Chart1.vue';
 definePageConfig({
- transparentTitle: 'auto',
+  transparentTitle: 'auto',
   titlePenetrate: 'YES',
-  defaultTitle: '',  usingComponents: {
-    'ec-canvas': '../../comp/ec-canvas/ec-canvas',
-  },
+  defaultTitle: '',
 });
 let loading = ref(true);
 let moreList = ref([

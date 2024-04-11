@@ -210,7 +210,7 @@ import NrzCalendar from '@/components/nrz-calendar/index.vue';
 
 import { useHeaderHeight } from '@/hooks/index';
 import { usePullDownRefresh } from '@tarojs/taro';
-definePageConfig({ navigationStyle: 'custom', enablePullDownRefresh: true });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', enablePullDownRefresh: true });
 let startDate = ref(dayjs(new Date()).subtract(1, 'year').format(YMD_EN));
 let endDate = ref(dayjs(new Date()).format(YMD_EN));
 let loading = ref(false);

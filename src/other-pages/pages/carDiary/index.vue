@@ -138,7 +138,7 @@ import * as dayjs from 'dayjs';
 import { vrData } from '@/assets/js/virtual_car_diary';
 import NrzAction from '@/components/nrz-action/index.vue';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 let around = ref('');
 const showDay30 = ref(false);
 const params = useRouter().params;

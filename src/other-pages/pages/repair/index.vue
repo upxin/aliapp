@@ -179,7 +179,7 @@ import {
 import { getAllCar, fixedOrder, getCarBehavior } from '@/api/index';
 import dayjs from 'dayjs';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 const datePicker = ref();
 const formData = reactive({
   mobile: '',

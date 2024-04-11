@@ -99,7 +99,7 @@ import NrImg from '@/components/img/img.vue';
 import Full from '@/components/full-loading/index.vue';
 import NrzBtn from '@/components/nrz-button/index.vue';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 const parts = ref('零配件详情');
 let detail = ref();
 let floading = ref(true);

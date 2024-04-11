@@ -108,7 +108,7 @@ export default {
 import FullLoading from '@/components/full-loading/index.vue';
 import { onBeforeMount, onMounted, ref } from 'vue';
 import customHeader from '@/components/customHeader/index.vue';
-import * as echarts from '../../comp/ec-canvas/echarts.js';
+// import * as echarts from '../../comp/ec-canvas/echarts.js';
 import {
   CODE,
   nrNavigateTo,
@@ -128,7 +128,7 @@ import Taro, { usePullDownRefresh, useReachBottom } from '@tarojs/taro';
 
 definePageConfig({
   usingComponents: {
-    'ec-canvas': '../../comp/ec-canvas/ec-canvas',
+    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
   },
  transparentTitle: 'auto',
   titlePenetrate: 'YES',

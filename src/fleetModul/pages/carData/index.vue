@@ -290,7 +290,7 @@ import {
 } from '@/utils/index';
 import Chart from './Chart.vue';
 import Item from './Item.vue';
-import * as echarts from '../../comp/ec-canvas/echarts.js';
+// import * as echarts from '../../comp/ec-canvas/echarts.js';
 import dayjs from 'dayjs';
 import { vrBoard, vrChart, vrHis } from './vr';
 let Yb = 'https://nrz-app.su.bcebos.com/resources/yb.png';

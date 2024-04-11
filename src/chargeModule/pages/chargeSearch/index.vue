@@ -84,7 +84,7 @@ import { useHeaderHeight, useNavigateBackSetData } from '@/hooks/index';
 import ChargeListItem from '../../components/chargeListItem/ChargeListItem.vue';
 import { store } from '@/stores';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 let list = ref<any[]>([]);
 let hasMore = ref(false);
 const keyword = ref('');

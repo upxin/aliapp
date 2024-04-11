@@ -134,7 +134,7 @@ import {
 import { useHeaderHeight } from '@/hooks/index';
 import { store } from '@/stores/index';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 
 let pageNum = 1;
 let pageSize = 20;

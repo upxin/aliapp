@@ -312,7 +312,7 @@ interface PropsItem {
 definePageConfig({
   navigationBarTitleText: '车队数据',
   usingComponents: {
-    'ec-canvas': '../../comp/ec-canvas/ec-canvas',
+    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
   },
 });
 let time = ref();

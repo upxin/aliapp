@@ -68,7 +68,7 @@ import BackCoinRecord from './backCoinRecord.vue';
 import dayjs from 'dayjs';
 import NrzCalendar from '@/components/nrz-calendar/index.vue';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 const { headerHeight } = useHeaderHeight();
 const calendar = ref();
 

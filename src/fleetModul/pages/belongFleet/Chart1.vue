@@ -1,6 +1,6 @@
 <template>
   <view class="box-border relative w-full h-200px bg-fff">
-    <ec-canvas id="fleetHome" canvas-id="fleetHome-bar" :ec="ec"></ec-canvas>
+    <!-- <ec-canvas id="fleetHome" canvas-id="fleetHome-bar" :ec="ec"></ec-canvas> -->
     <div v-if="show" class="absolute center">
       <div class="flex items-end opacity-70">
         <span>共计</span>
@@ -24,7 +24,7 @@
 </template>
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import * as echarts from '../../comp/ec-canvas/echarts.js';
+// import * as echarts from '../../comp/ec-canvas/echarts.js';
 import { CODE, useToast } from '@/utils';
 import { onlineCars } from '@/api';
 

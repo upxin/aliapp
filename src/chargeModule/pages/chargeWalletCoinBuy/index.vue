@@ -198,7 +198,7 @@ let buttons = [
     color: '#586c94',
   },
 ];
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 
 const { headerHeight } = useHeaderHeight();
 const showPay = ref(false);

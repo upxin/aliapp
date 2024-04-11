@@ -312,7 +312,7 @@ import { computed, onBeforeMount, ref } from 'vue';
 import { shopDetail, shopComment } from '@/api/index';
 import NrzBtn from '@/components/nrz-button/index.vue';
 
-definePageConfig({ navigationStyle: 'custom', enableShareAppMessage: true });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
 
 function appointment(id, name) {
   //

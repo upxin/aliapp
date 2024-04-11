@@ -150,7 +150,7 @@ import { orderDetail, commentEnum, applyComment } from '@/api/index';
 import { CODE, navigateToPage, useToast } from '@/utils/index';
 import { useHeaderHeight } from '@/hooks/index';
 import NrzBtn from '@/components/nrz-button/index.vue';
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 
 interface Detail {
   orderId: any;

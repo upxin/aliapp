@@ -402,7 +402,7 @@ watch(
 
 <style lang="scss">
 // box-shadow:阴影类型 X轴位移 Y轴位移 阴影大小 阴影扩展 阴影颜色
-// 也可以用逗号隔开单独设置 四个方向的阴影 box-shadow: 0 0 3px 2px red,0 0 3px 6px green,,;
+// 也可以用逗号隔开单独设置 四个方向的阴影 box-shadow: 0 0 3px 2px red,0 0 3px 6px green,;
 .nr-shadow {
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.2);
 }

@@ -123,7 +123,7 @@ import { INSURE_COMPONY, useToast, CODE, goPages } from '@/utils/index';
 import NrzAction from '@/components/nrz-action/index.vue';
 import NrzDateTime from '@/components/nrz-datetime/index.vue';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 const minDate = new Date(2020, 0, 1);
 const maxDate = new Date(2025, 10, 1);
 const formData = reactive({

@@ -152,7 +152,7 @@ import CustomBar from '@/components/customHeader/index.vue';
 import Taro, { useReady } from '@tarojs/taro';
 import { dsConfig, dsDetail } from '@/api/index';
 import { CODE, useToast, VehColor } from '@/utils/index';
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 let state = reactive({
   eleAvgConsumptionRatio: 0,
   eleMileageRatio: 0,

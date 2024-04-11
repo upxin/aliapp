@@ -309,6 +309,7 @@ function initCar() {
 }
 
 function oldSocket() {
+  console.log(999999, '=====================');
   initSocket().then((task: any) => {
     SOCKET_TASK = task;
     task.onOpen = () => {

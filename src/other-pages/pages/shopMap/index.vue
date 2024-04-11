@@ -46,7 +46,7 @@ export default {
 import { ref } from 'vue';
 import CustomBar from '@/components/customHeader/index.vue';
 import Taro, { useReady, useRouter } from '@tarojs/taro';
-import { WMap, MAP_MARK_ICON } from '@/utils/index';
+import { MAP_MARK_ICON } from '@/utils/index';
 import FullLoading from '@/components/full-loading/index.vue';
 import { geoAddrToLat } from '@/api/index';
 
@@ -158,14 +158,14 @@ function markertap(e) {
     return item?.id === e.detail.markerId;
   });
   const { latitude, longitude } = clickedMark[0];
-  WMap.calculateDistance({
-    mode: 'straight',
-    from: `${firstLat},${firstLon}`, // 从定位计算距离
-    to: `${latitude},${longitude}`,
-    success: function (_, data) {
-      distance.value = data.distanceResult[0];
-    },
-  });
+  // mapCtx.calculateDistance({
+  //   mode: 'straight',
+  //   from: `${firstLat},${firstLon}`, // 从定位计算距离
+  //   to: `${latitude},${longitude}`,
+  //   success: function (_, data) {
+  //     distance.value = data.distanceResult[0];
+  //   },
+  // });
   markCard.value = clickedMark[0];
 }
 useReady(async () => {

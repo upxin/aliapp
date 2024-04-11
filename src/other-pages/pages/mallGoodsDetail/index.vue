@@ -149,7 +149,7 @@ useShareAppMessage(() => {
     imageUrl: spu_data?.banners?.[0],
   };
 });
-definePageConfig({ navigationStyle: 'custom', enableShareAppMessage: true });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
 
 let show = ref(false);
 let params = useRouter().params;

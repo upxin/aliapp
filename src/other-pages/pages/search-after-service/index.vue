@@ -94,7 +94,7 @@ import { getShopList, getCityList } from '@/api/index';
 import { systemInfo, store, loveCarStore } from '@/stores/index';
 import NrzAddr from '@/components/nrz-addr/index.vue';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 onBeforeMount(() => {
   _getShopList();
   initPos();

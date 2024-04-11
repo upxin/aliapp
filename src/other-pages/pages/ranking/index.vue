@@ -251,7 +251,7 @@ import dayjs from 'dayjs';
 import { vrData } from '@/assets/js/virtual_car_diary_rank';
 import Taro, { useRouter } from '@tarojs/taro';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 let startTime = ref();
 let endTime = ref();
 const show30 = ref(false);

@@ -68,7 +68,7 @@ import { timeAxis } from '@/api/index';
 import { CODE, YMD_EN } from '@/utils/index';
 import { vrData } from '@/assets/js/virtual_car_diary_time_line';
 import NrzAction from '@/components/nrz-action/index.vue';
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 
 let Params = useRouter().params;
 const LoveCarStore = loveCarStore();

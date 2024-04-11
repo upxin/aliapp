@@ -96,7 +96,7 @@ export default {
 import { nextTick, ref } from 'vue';
 import CustomBar from '@/components/customHeader/index.vue';
 import Taro, { useReady, useRouter } from '@tarojs/taro';
-import { get, WMap, formatThousands, MAP_MARK_ICON } from '@/utils/index';
+import { get, formatThousands, MAP_MARK_ICON } from '@/utils/index';
 import { systemInfo, store } from '@/stores/index';
 import NrImg from '@/components/img/img.vue';
 const Params = useRouter().params;
@@ -261,12 +261,19 @@ function markertap(e) {
     return item?.id === e.detail.markerId;
   });
   const { latitude, longitude } = clickedMark[0];
-  WMap.calculateDistance({
-    mode: 'straight',
-    from: `${firstLat},${firstLon}`, // 从定位计算距离
-    to: `${latitude},${longitude}`,
-    success: function (_, data) {
-      distance.value = data.distanceResult[0];
+  mapCtx.calculateDistance({
+    points: [
+      {
+        latitude: firstLat,
+        longitude: firstLon,
+      },
+      {
+        latitude: latitude,
+        longitude: longitude,
+      },
+    ],
+    success: function (ret) {
+      distance.value = ret.distance;
     },
   });
   markCard.value = clickedMark[0];

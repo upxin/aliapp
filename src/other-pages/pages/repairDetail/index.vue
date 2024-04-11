@@ -143,7 +143,7 @@ import { systemInfo } from '@/stores/systemInfo';
 import { copyText, nrNavigateTo, makePhoneCall } from '@/utils/index';
 import { ref, computed } from 'vue';
 
-definePageConfig({ navigationStyle: 'custom' });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
 
 const phone = ref('136');
 let CalcPt = computed(

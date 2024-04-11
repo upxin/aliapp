@@ -254,7 +254,7 @@ import {
 import { useHeaderHeight, useRequest } from '@/hooks/index';
 import BgImg from '@/components/bg-img/bg-img.vue';
 
-definePageConfig({ navigationStyle: 'custom', enablePullDownRefresh: true });
+definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', enablePullDownRefresh: true });
 //     UN_PAY(0, "待支付"),
 //     NOT_SHIPPED(1, "待发货"),
 //     YES_SHIPPED(2, "待收货"),

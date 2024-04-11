@@ -50,7 +50,7 @@ import Item from './Item.vue';
 import Repair from '@/components/repair/index.vue';
 import Taro from '@tarojs/taro';
 definePageConfig({
-  navigationStyle: 'custom',
+  transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '',
   navigationBarTitleText: '任务中心',
 });
 
