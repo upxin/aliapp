@@ -48,7 +48,7 @@ import MainScroll from '@/components/scroll-main/index.vue';
 import { onBeforeMount, ref } from 'vue';
 import { getWalletOrderRecord } from '@/api/index';
 import { CODE, copyText, useToast } from '@/utils/index';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 let orderList = ref<any[]>([]);
 let hasMore = ref(false);
 

@@ -135,7 +135,7 @@ import {
 import { useHeaderHeight, useGetNavigateBackParams } from '@/hooks/index';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 let params = useRouter().params;

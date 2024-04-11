@@ -37,7 +37,7 @@ import { CODE } from '@/utils/index';
 import { useHeaderHeight } from '@/hooks/index';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

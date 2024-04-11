@@ -102,7 +102,7 @@ import NrImg from '@/components/img/img.vue';
 const Params = useRouter().params;
 const Store = store();
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

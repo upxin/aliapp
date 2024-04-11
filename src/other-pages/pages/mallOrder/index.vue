@@ -34,7 +34,7 @@ import Taro from '@tarojs/taro';
 import { useHeaderHeight } from '@/hooks/index';
 import List from './list.vue';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 
 let tabIndex = ref(0);
 let scrollH = computed(() => {

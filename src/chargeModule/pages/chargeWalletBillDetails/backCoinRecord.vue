@@ -51,7 +51,7 @@ import MainScroll from '@/components/scroll-main/index.vue';
 import { onBeforeMount, ref } from 'vue';
 import { getWalletBuyOrBackRecord } from '@/api/index';
 import { CODE, useToast, formatThousands } from '@/utils/index';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 let backList = ref<any[]>([]);
 let hasMore = ref(false);
 let initLg = ref(true);

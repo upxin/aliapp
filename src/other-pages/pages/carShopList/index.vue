@@ -168,7 +168,7 @@ import { useGetNavigateBackParams } from '@/hooks';
 import DownList from '@/components/nrz-down-list/index.vue';
 import DownListItem from '@/components/nrz-down-list-item/index.vue';
 import NrzAddr from '@/components/nrz-addr/index.vue';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
 
 useShareAppMessage(() => {
   return {

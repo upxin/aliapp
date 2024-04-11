@@ -184,7 +184,7 @@ useShareAppMessage(() => {
     imageUrl: 'https://nrz-app.su.bcebos.com/resources/lcjsq_share.jpg',
   };
 });
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 const carBox = 'https://nrz-app.su.bcebos.com/app-pic/EC1/lcjsq_ec1_hx.png';
 const iC1 = 'https://nrz-app.su.bcebos.com/app-pic/iC1/iC1_wait.png';
 const carSt = 'https://nrz-app.su.bcebos.com/app-pic/EC1/lcjsq_ec1_cs.png';

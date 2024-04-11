@@ -121,7 +121,7 @@ import { nrNavigateTo } from '@/utils/index';
 import Item from './item.vue';
 import NrzCheckBox from '@/components/nrz-checkbox/index.vue';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 let orderStatusMap = {
   0: '待支付',
   1: '待发货',

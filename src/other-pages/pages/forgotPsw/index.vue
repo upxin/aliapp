@@ -84,7 +84,7 @@ import NrzBtn from '@/components/nrz-button/index.vue';
 import { reactive } from 'vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

@@ -108,7 +108,7 @@ definePageConfig({
   usingComponents: {
     // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
   },
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

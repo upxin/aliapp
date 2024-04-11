@@ -16,9 +16,11 @@ import {
   InputNumber,
   Picker,
   Popover,
+  Icon,
 } from '@nutui/nutui-taro';
 
 const compList = [
+  Icon,
   Table,
   Popover,
   InputNumber,

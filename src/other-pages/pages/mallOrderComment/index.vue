@@ -53,7 +53,7 @@ import { useHeaderHeight } from '@/hooks/index';
 import { getCommentList } from '@/api/index';
 import NrzImg from '@/components/img/img.vue';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 
 let params = useRouter().params;
 

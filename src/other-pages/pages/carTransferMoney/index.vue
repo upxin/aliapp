@@ -68,7 +68,7 @@ import { copyText, CODE } from '@/utils/index';
 import { getBank } from '@/api/index';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

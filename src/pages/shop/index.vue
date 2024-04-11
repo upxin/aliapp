@@ -130,7 +130,7 @@ useShareAppMessage(() => {
 });
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   enablePullDownRefresh: true,

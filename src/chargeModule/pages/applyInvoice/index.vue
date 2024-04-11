@@ -129,7 +129,7 @@ import {
 } from '@/utils/index';
 import { openInvoice } from '@/api/index';
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 let showTitle = ref<any>(null);

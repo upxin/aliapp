@@ -116,7 +116,7 @@ import NrzDateTime from '@/components/nrz-datetime/index.vue';
 import NrzCalendar from '@/components/nrz-calendar/index.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   usingComponents: {

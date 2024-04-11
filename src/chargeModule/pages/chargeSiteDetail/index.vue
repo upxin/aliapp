@@ -119,7 +119,7 @@ import { useHeaderHeight } from '@/hooks/index';
 import Taro from '@tarojs/taro';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

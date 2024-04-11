@@ -9,7 +9,7 @@ import { getCarTypeList } from '@/api/index';
 definePageConfig({
   titlePenetrate: 'YES',
   defaultTitle: '',
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
 });
 
 interface Cars {

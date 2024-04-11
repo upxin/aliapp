@@ -73,7 +73,7 @@ import { formatThousands, CODE, useToast } from '@/utils/index';
 import { walletDetail, backCoin } from '@/api/index';
 import Taro from '@tarojs/taro';
 import FullLoading from '@/components/full-loading/index.vue';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 
 interface Detail {
   freezeCoin?: number;

@@ -46,7 +46,7 @@ import { onBeforeMount, ref } from 'vue';
 import { nrNavigateTo } from '@/utils/index';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

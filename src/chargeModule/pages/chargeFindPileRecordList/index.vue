@@ -94,7 +94,7 @@ import { CODE, pageHasMore } from '@/utils/index';
 import { useNavigateBackSetData } from '@/hooks/index';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

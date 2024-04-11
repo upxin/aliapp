@@ -36,7 +36,7 @@ export default {
 
 <script lang="ts" setup>
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 interface FormData {

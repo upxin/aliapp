@@ -181,7 +181,7 @@ let END = 'https://nrz-app.su.bcebos.com/resources/end.png';
 let PARK = 'https://nrz-app.su.bcebos.com/resources/park.png';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

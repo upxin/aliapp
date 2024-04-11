@@ -72,7 +72,7 @@ import { ref } from 'vue';
 import CustomBar from '@/components/customHeader/index.vue';
 import CouponList from './list.vue';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 let type = ref(1);
 let tabIndex = ref(0);
 

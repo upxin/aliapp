@@ -80,16 +80,16 @@
         </div>
       </div>
     </div>
-    <Chart
+    <!-- <Chart
       id="mile"
       class="-mt-200px"
       title="行驶里程"
       :opts="mileData"
-    ></Chart>
+    ></Chart> -->
     <div class="mb-20px"></div>
-    <Chart id="time" title="行驶时间" :opts="timeChartData"></Chart>
+    <!-- <Chart id="time" title="行驶时间" :opts="timeChartData"></Chart> -->
     <div class="mb-20px"></div>
-    <Chart id="speed" title="行驶速度" :opts="speedData"></Chart>
+    <!-- <Chart id="speed" title="行驶速度" :opts="speedData"></Chart> -->
     <div
       class="flex justify-between text-center px-20px text-10px text-fff mb-20px"
     >
@@ -288,7 +288,7 @@ import {
   LOGO_IMG_BOTTOM,
   JG,
 } from '@/utils/index';
-import Chart from './Chart.vue';
+// import Chart from './Chart.vue';
 import Item from './Item.vue';
 // import * as echarts from '../../comp/ec-canvas/echarts.js';
 import dayjs from 'dayjs';
@@ -297,7 +297,7 @@ let Yb = 'https://nrz-app.su.bcebos.com/resources/yb.png';
 
 console.log('2023-01-03 18:36:00', dayjs('2023-01-03 18:36:00').minute());
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   // usingComponents: {
@@ -523,186 +523,186 @@ let speedData = computed(() => {
   return option;
 });
 
-let oilConsumptionData = computed(() => {
-  let xD = (allData.value?.costEnergyData || [])?.map((k) => k?.key);
-  let yD = (allData.value?.costEnergyData || [])?.map((k) => k?.value);
-  return {
-    color: [],
+// let oilConsumptionData = computed(() => {
+//   let xD = (allData.value?.costEnergyData || [])?.map((k) => k?.key);
+//   let yD = (allData.value?.costEnergyData || [])?.map((k) => k?.value);
+//   return {
+//     color: [],
 
-    xAxis: {
-      splitLine: { show: false },
-      type: 'category',
-      data: xD,
-      axisTick: {
-        alignWithLabel: true,
-      },
-    },
-    yAxis: {
-      splitLine: { show: false },
-      type: 'value',
-      axisLine: {
-        show: true,
-      },
-    },
-    series: [
-      {
-        label: {
-          show: true, //开启显示
-          position: 'top', //在上方显示
-        },
-        itemStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#F54527' },
-            { offset: 1, color: '#E99835' },
-          ]),
-        },
-        data: yD,
-        type: 'bar',
-      },
-    ],
-  };
-});
-let energyConsumptionData = computed(() => {
-  let xD = (allData.value?.energyConsumptionData ?? [])?.map((k) => k?.key);
-  let yD = (allData.value?.energyConsumptionData ?? [])?.map((k) => k?.value);
-  return {
-    color: [],
+//     xAxis: {
+//       splitLine: { show: false },
+//       type: 'category',
+//       data: xD,
+//       axisTick: {
+//         alignWithLabel: true,
+//       },
+//     },
+//     yAxis: {
+//       splitLine: { show: false },
+//       type: 'value',
+//       axisLine: {
+//         show: true,
+//       },
+//     },
+//     series: [
+//       {
+//         label: {
+//           show: true, //开启显示
+//           position: 'top', //在上方显示
+//         },
+//         itemStyle: {
+//           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+//             { offset: 0, color: '#F54527' },
+//             { offset: 1, color: '#E99835' },
+//           ]),
+//         },
+//         data: yD,
+//         type: 'bar',
+//       },
+//     ],
+//   };
+// });
+// let energyConsumptionData = computed(() => {
+//   let xD = (allData.value?.energyConsumptionData ?? [])?.map((k) => k?.key);
+//   let yD = (allData.value?.energyConsumptionData ?? [])?.map((k) => k?.value);
+//   return {
+//     color: [],
 
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow',
-      },
-    },
-    xAxis: {
-      type: 'category',
-      data: xD,
-      axisTick: {
-        alignWithLabel: true,
-      },
-    },
-    yAxis: {
-      type: 'value',
-      axisLine: {
-        show: true,
-      },
-      splitLine: { show: true },
-    },
-    series: [
-      {
-        label: {
-          show: true, //开启显示
-          position: 'top', //在上方显示
-        },
-        itemStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#2731F5' },
-            { offset: 1, color: '#6D5DBC' },
-          ]),
-        },
-        data: yD,
-        type: 'bar',
-      },
-    ],
-  };
-});
-let fullyMileageData = computed(() => {
-  let xD = (allData.value?.fullyMileageData?.mileageData || [])?.map(
-    (k) => k?.key
-  );
-  let yD = (allData.value?.fullyMileageData?.mileageData || [])?.map(
-    (k) => k?.value
-  );
-  return {
-    color: [],
+//     tooltip: {
+//       trigger: 'axis',
+//       axisPointer: {
+//         type: 'shadow',
+//       },
+//     },
+//     xAxis: {
+//       type: 'category',
+//       data: xD,
+//       axisTick: {
+//         alignWithLabel: true,
+//       },
+//     },
+//     yAxis: {
+//       type: 'value',
+//       axisLine: {
+//         show: true,
+//       },
+//       splitLine: { show: true },
+//     },
+//     series: [
+//       {
+//         label: {
+//           show: true, //开启显示
+//           position: 'top', //在上方显示
+//         },
+//         itemStyle: {
+//           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+//             { offset: 0, color: '#2731F5' },
+//             { offset: 1, color: '#6D5DBC' },
+//           ]),
+//         },
+//         data: yD,
+//         type: 'bar',
+//       },
+//     ],
+//   };
+// });
+// let fullyMileageData = computed(() => {
+//   let xD = (allData.value?.fullyMileageData?.mileageData || [])?.map(
+//     (k) => k?.key
+//   );
+//   let yD = (allData.value?.fullyMileageData?.mileageData || [])?.map(
+//     (k) => k?.value
+//   );
+//   return {
+//     color: [],
 
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow',
-      },
-    },
-    xAxis: {
-      type: 'category',
-      data: xD,
-      axisTick: {
-        alignWithLabel: true,
-      },
-    },
-    yAxis: {
-      axisLine: {
-        show: true,
-      },
-      type: 'value',
-      splitLine: { show: false },
-    },
-    series: [
-      {
-        label: {
-          show: true, //开启显示
-          position: 'top', //在上方显示
-        },
+//     tooltip: {
+//       trigger: 'axis',
+//       axisPointer: {
+//         type: 'shadow',
+//       },
+//     },
+//     xAxis: {
+//       type: 'category',
+//       data: xD,
+//       axisTick: {
+//         alignWithLabel: true,
+//       },
+//     },
+//     yAxis: {
+//       axisLine: {
+//         show: true,
+//       },
+//       type: 'value',
+//       splitLine: { show: false },
+//     },
+//     series: [
+//       {
+//         label: {
+//           show: true, //开启显示
+//           position: 'top', //在上方显示
+//         },
 
-        itemStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#F54527' },
-            { offset: 1, color: '#E99835' },
-          ]),
-        },
-        data: yD,
-        type: 'bar',
-      },
-    ],
-  };
-});
-let lowMileageData = computed(() => {
-  let xD = (allData.value?.lowMileageData?.mileageData || [])?.map(
-    (k) => k?.key
-  );
-  let yD = (allData.value?.lowMileageData?.mileageData || [])?.map(
-    (k) => k?.value
-  );
-  return {
-    color: [],
+//         itemStyle: {
+//           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+//             { offset: 0, color: '#F54527' },
+//             { offset: 1, color: '#E99835' },
+//           ]),
+//         },
+//         data: yD,
+//         type: 'bar',
+//       },
+//     ],
+//   };
+// });
+// let lowMileageData = computed(() => {
+//   let xD = (allData.value?.lowMileageData?.mileageData || [])?.map(
+//     (k) => k?.key
+//   );
+//   let yD = (allData.value?.lowMileageData?.mileageData || [])?.map(
+//     (k) => k?.value
+//   );
+//   return {
+//     color: [],
 
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow',
-      },
-    },
-    xAxis: {
-      type: 'category',
-      data: xD,
-      axisTick: {
-        alignWithLabel: true,
-      },
-    },
-    yAxis: {
-      axisLine: {
-        show: true,
-      },
-      type: 'value',
-      splitLine: { show: false },
-    },
-    series: [
-      {
-        label: {
-          show: true, //开启显示
-          position: 'top', //在上方显示
-        },
-        itemStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#2731F5' },
-            { offset: 1, color: '#6D5DBC' },
-          ]),
-        },
-        data: yD,
-        type: 'bar',
-      },
-    ],
-  };
-});
+//     tooltip: {
+//       trigger: 'axis',
+//       axisPointer: {
+//         type: 'shadow',
+//       },
+//     },
+//     xAxis: {
+//       type: 'category',
+//       data: xD,
+//       axisTick: {
+//         alignWithLabel: true,
+//       },
+//     },
+//     yAxis: {
+//       axisLine: {
+//         show: true,
+//       },
+//       type: 'value',
+//       splitLine: { show: false },
+//     },
+//     series: [
+//       {
+//         label: {
+//           show: true, //开启显示
+//           position: 'top', //在上方显示
+//         },
+//         itemStyle: {
+//           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+//             { offset: 0, color: '#2731F5' },
+//             { offset: 1, color: '#6D5DBC' },
+//           ]),
+//         },
+//         data: yD,
+//         type: 'bar',
+//       },
+//     ],
+//   };
+// });
 let current = ref('');
 let showTooltip = ref(false);
 let menuList1 = ref([
@@ -782,10 +782,20 @@ usePageScroll((res) => {
   const cur = +(Math.abs(Math.round(res.scrollTop)) / 200).toFixed(1);
   if (res.scrollTop <= 2) {
     titleColor.value = '#fff';
+    my.setBackButton({
+      color: '#ffffff',
+    });
   } else {
     titleColor.value = `rgba(0,0,0, ${cur})`;
+    my.setBackButton({
+      color: '#000000',
+    });
   }
   opacity.value = cur;
+});
+
+my.setBackButton({
+  color: '#ffffff',
 });
 // bottom
 </script>

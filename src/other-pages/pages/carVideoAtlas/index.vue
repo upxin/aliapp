@@ -169,7 +169,7 @@ import { jGcustomCount, JG } from '@/utils';
 import NrzOverlay from '@/components/nrz-overlay/index.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   enableShareAppMessage: true,

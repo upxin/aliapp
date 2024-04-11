@@ -109,7 +109,7 @@ import { useRouter } from '@tarojs/taro';
 import Scroll from '@/components/scroll-main/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 let list = ref<any[]>([]);

@@ -131,7 +131,7 @@ import { getCharging } from '@/api/index';
 import ChooseMore from '../chargeMapStationList/ChooseMore.vue';
 import { store } from '@/stores';
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

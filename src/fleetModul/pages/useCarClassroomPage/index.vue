@@ -46,7 +46,7 @@ import { CODE, useToast, jGcustomCount, JG } from '@/utils/index';
 import { useRect } from '@/hooks/index';
 import NrImg from '@/components/img/img.vue';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
 
 useShareAppMessage(() => {
   jGcustomCount(JG.MALL_003, { name: '视频学堂' });

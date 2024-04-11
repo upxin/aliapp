@@ -214,7 +214,7 @@ import { useHeaderHeight, useModal } from '@/hooks/index';
 import Cropper from './Cropper.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',  usingComponents: {
     'image-cropper': '../../../components/image-cropper/image-cropper',

@@ -318,7 +318,7 @@ import EditForm from './editForm.vue';
 import FullLoading from '@/components/full-loading/index.vue';
 import dayjs from 'dayjs';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 let floading = ref(true);
 let checkData = ref();
 let pcData = ref();

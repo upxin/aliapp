@@ -151,7 +151,7 @@ import DownListItem from '@/components/nrz-down-list-item/index.vue';
 import NrzCalendar from '@/components/nrz-calendar/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',  navigationBarTitleText: '邀请好友记录',
 });

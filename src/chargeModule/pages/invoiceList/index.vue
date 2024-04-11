@@ -132,7 +132,7 @@ import { CODE, YMD_EN, navigateToPage } from '@/utils/index';
 import Taro from '@tarojs/taro';
 import NrzCalendar from '@/components/nrz-calendar/index.vue';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 let list = ref<any[]>([]);
 let hasMore = ref(false);
 let pageNum = 1;

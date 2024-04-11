@@ -33,7 +33,7 @@ import { USER_INFO, getStorage, useToast } from '@/utils';
 import { BTN_SHARE } from '@/utils';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   enablePullDownRefresh: true,

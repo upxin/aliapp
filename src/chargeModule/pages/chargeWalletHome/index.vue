@@ -14,7 +14,7 @@ import { isOpenWallet, openWallet, walletDetail } from '@/api/index';
 import Taro, { useDidShow } from '@tarojs/taro';
 import Fl from '@/components/full-loading/index.vue';
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 interface Detail {

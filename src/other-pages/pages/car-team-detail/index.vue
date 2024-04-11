@@ -14,7 +14,7 @@ import CustomBar from '@/components/customHeader/index.vue';
 import OwnerCar from './detail.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

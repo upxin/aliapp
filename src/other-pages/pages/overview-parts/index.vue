@@ -161,7 +161,7 @@ import {
 import { saveCarConf } from '@/api/index';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

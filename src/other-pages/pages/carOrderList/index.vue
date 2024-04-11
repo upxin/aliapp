@@ -295,7 +295,7 @@ import Taro from '@tarojs/taro';
 // k?.deliveryDate 不为空 已交车  不显示任何按钮
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

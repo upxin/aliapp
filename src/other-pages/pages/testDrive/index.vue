@@ -196,7 +196,7 @@ import {
 } from '@/utils/index';
 import { getCarTypeList, getCode, submitTestDrive } from '@/api/index';
 import NrzBtmPop from '@/components/nrz-bottom-popup/index.vue';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', enableShareAppMessage: true });
 
 useShareAppMessage(() => {
   jGcustomCount(JG.MALL_003, { name: '里程计算器' });

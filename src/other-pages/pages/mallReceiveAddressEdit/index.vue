@@ -106,7 +106,7 @@ import NrzSwitch from '@/components/nrz-switch/index.vue';
 import Cascader from '@/components/nrz-addr/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

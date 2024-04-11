@@ -26,7 +26,7 @@ import CustomBar from '@/components/customHeader/index.vue';
 import Taro, { useRouter } from '@tarojs/taro';
 import NrzImg from '@/components/img/img.vue';
 import { useHeaderHeight } from '@/hooks/index';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 const { headerHeight } = useHeaderHeight();
 function hanldeImg() {
   Taro.showLoading({

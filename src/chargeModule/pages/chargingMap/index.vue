@@ -41,7 +41,7 @@ const iconW = 22;
 const iconH = 30;
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

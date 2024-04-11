@@ -258,7 +258,7 @@ import DownList from '@/components/nrz-down-list/index.vue';
 const { currentCityName } = usePosition();
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',  enablePullDownRefresh: true,
 });

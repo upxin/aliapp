@@ -54,7 +54,7 @@ import { formatThousands, navigateToPage, CODE, useToast } from '@/utils/index';
 import { walletDetail } from '@/api/index';
 import FullLoading from '@/components/full-loading/index.vue';
 import NrzBtn from '@/components/nrz-button/index.vue';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 
 interface Detail {
   freezeCoin?: number;

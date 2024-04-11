@@ -299,7 +299,7 @@ const dateUrl =
   'https://nrz-app.su.bcebos.com/app-pic/signin_dialog_inner_bg.png';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   enablePullDownRefresh: true,

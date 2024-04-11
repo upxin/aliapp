@@ -151,7 +151,7 @@ import dayjs from 'dayjs';
 import Taro, { useReady } from '@tarojs/taro';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 const iconItemList = [

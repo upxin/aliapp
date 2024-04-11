@@ -86,7 +86,7 @@ import NrImg from '@/components/img/img.vue';
 import { computed } from 'vue';
 const CarConfStore = CarConf();
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

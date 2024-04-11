@@ -37,7 +37,7 @@ import { AMap } from '@/utils/amap';
 import CustomBar from '@/components/customHeader/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

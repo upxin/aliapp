@@ -47,7 +47,7 @@ import { getInvoiceList } from '@/api/invoice';
 import { onBeforeMount, ref } from 'vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

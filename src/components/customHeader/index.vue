@@ -8,7 +8,7 @@
       zIndex: props.z,
       position,
     }"
-    class="box-content top-0 flex items-center justify-between w-full text-16px pb-10px"
+    class="box-content top-0 flex items-center justify-between w-full text-16px"
   >
     <template v-if="!!$slots?.default">
       <slot name="default"></slot>

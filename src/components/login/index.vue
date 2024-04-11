@@ -86,7 +86,7 @@ import { reactive } from 'vue';
 
 const query = useRouter().params;
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

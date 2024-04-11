@@ -163,7 +163,7 @@ import CustomHeader from '@/components/customHeader/index.vue';
 import dayjs from 'dayjs';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',  navigationBarTitleText: '邀请好友记录',
 });

@@ -27,7 +27,7 @@ import { ref } from 'vue';
 import CustomBar from '@/components/customHeader/index.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

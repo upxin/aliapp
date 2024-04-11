@@ -124,7 +124,7 @@ import Taro from '@tarojs/taro';
 import NrzCalendar from '@/components/nrz-calendar/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',  navigationBarTitleText: '邀请好友记录',
 });

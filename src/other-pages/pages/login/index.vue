@@ -17,7 +17,7 @@ import Taro, { useRouter } from '@tarojs/taro';
 import Login from '@/components/login/index.vue';
 import { ref } from 'vue';
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

@@ -121,7 +121,7 @@ import dayjs from 'dayjs';
 import DropMenu from '../../comp/dropMenu/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',  usingComponents: {
     // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',

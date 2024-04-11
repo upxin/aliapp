@@ -219,7 +219,7 @@ import { getAllOrderList } from '@/api/index';
 import { computed } from 'vue';
 import { systemInfo } from '@/stores/index';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 let title = ref('服务订单详情');
 let orderDetailData = ref<{ order: any; comment: any; shop: any; user: any }>({
   order: {},

@@ -57,7 +57,7 @@ import { CODE, pageHasMore } from '@/utils/index';
 import { chargeCommentList } from '@/api/index';
 import NrzImg from '@/components/img/img.vue';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 
 let params = useRouter().params;
 let initLg = ref(true);

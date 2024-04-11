@@ -458,7 +458,7 @@ import FullLoading from '@/components/full-loading/index.vue';
 import LazyImg from '@/components/nrz-img/index.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

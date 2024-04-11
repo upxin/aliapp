@@ -152,7 +152,7 @@ import { addInvoiceTitle } from '@/api/index';
 import NrzRadio from '@/components/nrz-radio/index.vue';
 import NrzRadioGroup from '@/components/nrz-radio-group/index.vue';
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

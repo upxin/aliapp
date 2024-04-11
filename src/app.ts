@@ -51,6 +51,8 @@ const App = createApp({
     //     console.log('开始定位失败', error);
     //   },
     // });
+
+    my.hideAllFavoriteMenu();
   },
   onShow() {
     upDataApp();

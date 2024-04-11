@@ -123,7 +123,7 @@ import NrzTabs from '@/components/nrz-tabs/index.vue';
 import Box from './components/box/index.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

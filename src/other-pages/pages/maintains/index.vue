@@ -204,7 +204,7 @@ import {
 import { getAllCar, maintainsOrd, getCarBehavior } from '@/api/index';
 import NrzAction from '@/components/nrz-action/index.vue';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 const datePicker = ref();
 const formData = reactive({
   mobile: '',

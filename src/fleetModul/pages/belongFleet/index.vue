@@ -147,7 +147,7 @@ import {
 import { useHeaderHeight } from '@/hooks/index';
 import Chart from './Chart1.vue';
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

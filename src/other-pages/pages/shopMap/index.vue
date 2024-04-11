@@ -52,7 +52,7 @@ import { geoAddrToLat } from '@/api/index';
 
 const Params = useRouter().params;
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

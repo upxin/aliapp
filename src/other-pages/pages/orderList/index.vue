@@ -55,7 +55,7 @@ import {
 import MainScroll from '@/components/scroll-main/index.vue';
 import NrImg from '@/components/img/img.vue';
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   backgroundTextStyle: 'dark', // 有默认值也得设置 否则不显示

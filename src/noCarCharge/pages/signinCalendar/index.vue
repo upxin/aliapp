@@ -85,7 +85,7 @@ const dateUrl =
   'https://nrz-app.su.bcebos.com/app-pic/signin_dialog_inner_bg.png';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   navigationBarTextStyle: 'white',
@@ -181,12 +181,6 @@ onMounted(() => {
 useLoad(() => {
   my.setBackButton({
     color: '#ffffff',
-    success: (res) => {
-      console.log('setBackButton——————1', res);
-    },
-    fail: (err) => {
-      console.log('setBackButton——————2', err);
-    },
   });
 });
 </script>

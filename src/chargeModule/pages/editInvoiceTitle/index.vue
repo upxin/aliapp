@@ -164,7 +164,7 @@ import NrzRadioGroup from '@/components/nrz-radio-group/index.vue';
 import { editInvoiceTitle, delInvoiceTitle } from '@/api/index';
 import { useModal } from '@/hooks/index';
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 let formData = reactive({

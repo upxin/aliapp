@@ -103,7 +103,7 @@ import NrzBtmPop from '@/components/nrz-bottom-popup/index.vue';
 import NrzNoticeBar from '@/components/nrz-notice-bar/index.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   enableShareAppMessage: true,

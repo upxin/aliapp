@@ -170,7 +170,7 @@ import { systemInfo } from '@/stores/index';
 import FullLoading from '@/components/full-loading/index.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',  enablePullDownRefresh: true,
 });

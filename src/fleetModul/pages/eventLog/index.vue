@@ -158,7 +158,7 @@ import Position from '../../pages/fleetHome/position.vue';
 import CarInfo from '../../comp/CarInfo.vue';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 let params = useRouter()?.params;

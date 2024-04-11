@@ -93,7 +93,7 @@ import {
 import MainScroll from '@/components/scroll-main/index.vue';
 import * as dayjs from 'dayjs';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 const Store = store();
 
 let list = ref<any[]>();

@@ -75,7 +75,7 @@ import { onMounted, computed, ref } from 'vue';
 import { searchBreakRules } from '@/api/index';
 import { CODE, JG, jGcustomCount } from '@/utils/index';
 import MainScroll from '@/components/scroll-main/index.vue';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 
 let CalcPt = computed(
   () => systemInfo().RightBtnRect.h + systemInfo().RightBtnRect.t + 10

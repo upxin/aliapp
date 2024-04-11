@@ -132,7 +132,7 @@ import {
 import dayjs from 'dayjs';
 
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 

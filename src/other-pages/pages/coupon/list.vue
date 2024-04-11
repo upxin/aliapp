@@ -100,7 +100,7 @@ import { watch } from 'vue';
 import { useRouter } from '@tarojs/taro';
 dayjs.extend(isToday);
 const params = useRouter().params;
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 interface Props {
   couponStatus: string | number;
   // 查询可用优惠券

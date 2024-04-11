@@ -155,7 +155,7 @@ import {
 import { editInvoiceTitle, delInvoiceTitle } from '@/api/index';
 import { useModal, useNavigateBackSetData } from '@/hooks/index';
 definePageConfig({
- transparentTitle: 'auto',
+ transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',});
 let formData = reactive({

@@ -74,7 +74,7 @@ import DropMenu from '../../comp/dropMenu/index.vue';
 import FullLoading from '@/components/full-loading/index.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
   usingComponents: {

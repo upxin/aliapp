@@ -135,7 +135,7 @@ import { CODE, regScore, nrNavigateTo, useToast } from '@/utils/index';
 import MainScroll from '@/components/scroll-main/index.vue';
 
 definePageConfig({
-  transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
 });

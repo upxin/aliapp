@@ -66,7 +66,7 @@ import { CODE, nrNavigateTo } from '@/utils';
 import NrImg from '@/components/img/img.vue';
 import MainScroll from '@/components/scroll-main/index.vue';
 import NrzSearchBar from '@/components/nrz-search-bar/index.vue';
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 const searchValue = ref('');
 const list = ref<any[]>([]);
 let hasMore = false;

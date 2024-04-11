@@ -129,9 +129,10 @@ import { vr } from './vr';
 import Taro from '@tarojs/taro';
 
 definePageConfig({
- transparentTitle: 'auto',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
-  defaultTitle: '',});
+  defaultTitle: '',
+});
 
 const mapCtx = Taro.createMapContext('map');
 
@@ -233,7 +234,9 @@ function setData(res) {
   });
 }
 let _getCarPosition = (code) => {
-  Taro.showLoading();
+  Taro.showLoading({
+    title: '',
+  });
   getCarPosition({ vinLicense: code }).then((res) => {
     fl.value = false;
     Taro.hideLoading();
@@ -244,7 +247,7 @@ let _getCarPosition = (code) => {
 
 let refresh = () => {
   if (loveCarStore()?.isVr) {
-    Taro.showLoading();
+    Taro.showLoading({ title: '' });
     setTimeout(() => {
       Taro.hideLoading();
     }, 1000);

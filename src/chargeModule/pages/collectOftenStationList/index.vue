@@ -63,7 +63,7 @@ import { CODE, pageHasMore } from '@/utils/index';
 
 import Taro, { useRouter } from '@tarojs/taro';
 
-definePageConfig({ transparentTitle: 'auto',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
 let list = ref<any[]>([]);
 const searchKey = ref('');
 const initl = ref(true);
