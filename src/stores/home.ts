@@ -101,6 +101,7 @@ interface State {
   // 标记是从充电页面跳回首页的，主动切到充电车辆
   fromCharging?: boolean;
   needRefresh?: boolean;
+  currentDeliveries: Record<string, any>;
 }
 type StateKeys = keyof State;
 
@@ -111,6 +112,7 @@ export const homeStore = defineStore('HOEM', () => {
     mouduleType: 'car',
     optional: undefined,
     deliveries: [],
+    currentDeliveries: {},
     cars: [],
     books: [],
     currentCar: {},

@@ -32,7 +32,7 @@ const config = {
         mini: {
           compilerOptions: {
             isCustomElement: (tag) =>
-              /^(native-)/.test(tag) || tag.startsWith('ec-'),
+              /^(native-)/.test(tag) || tag.startsWith('f2-'),
             whitespace: 'preserve',
           },
         },

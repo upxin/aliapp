@@ -1,5 +1,6 @@
 <template>
   <MainScroll
+    v-model:loading="loading"
     :has-more="hasMore"
     :has-data="!!orderList?.length"
     :init-loading="initLg"
@@ -48,7 +49,11 @@ import MainScroll from '@/components/scroll-main/index.vue';
 import { onBeforeMount, ref } from 'vue';
 import { getWalletOrderRecord } from '@/api/index';
 import { CODE, copyText, useToast } from '@/utils/index';
-definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({
+  transparentTitle: 'always',
+  titlePenetrate: 'YES',
+  defaultTitle: '',
+});
 let orderList = ref<any[]>([]);
 let hasMore = ref(false);
 
@@ -68,6 +73,7 @@ let props = defineProps({
     default: '',
   },
 });
+const loading = ref(false);
 let initLg = ref(true);
 function _getWalletOrderRecord(old) {
   getWalletOrderRecord({
@@ -77,6 +83,7 @@ function _getWalletOrderRecord(old) {
     endDate: props.endDate,
   })
     .then((res) => {
+      loading.value = false;
       initLg.value = false;
       if (res?.code !== CODE) return useToast(res?.msg);
       orderList.value = [...old, ...res?.data?.list];

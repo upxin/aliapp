@@ -2,6 +2,7 @@
   <section style="background: linear-gradient(#d5ebfc, #fff)">
     <ChangeCar></ChangeCar>
     <template v-if="HomeStore.state.mouduleType == 'parts'">
+      <!-- 有渲染bug -->
       <WithParts></WithParts>
     </template>
     <template v-if="HomeStore.state.mouduleType == 'prepay'">

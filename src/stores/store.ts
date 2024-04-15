@@ -154,7 +154,7 @@ export interface Part {
 }
 
 interface State {
-  totalPrice?: number;
+  amount?: number;
   box?: Part;
   basePrice?: number;
   optional?: Part[];

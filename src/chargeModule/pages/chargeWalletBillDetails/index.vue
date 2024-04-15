@@ -14,36 +14,32 @@
   </CustomBar>
   <FullLoading :loading="state.fullLoading">
     <div :style="{ height: `${headerHeight}px` }"></div>
-    <van-tabs
-      :active="state.initTab"
-      sticky
-      :offet-top="headerHeight"
+    <NrzTabs
+      v-model:current="state.initTab"
+      :tabs="['充电记录', '购币记录', '退币记录']"
       @change="swiperChange"
     >
-      <van-tab title="充电记录">
-        <ChargeRecord
-          :scroll-h="scrollH"
-          :start-date="date[0]"
-          :end-date="date[1]"
-        ></ChargeRecord>
-      </van-tab>
-      <van-tab title="购币记录">
-        <BuyCoinRecord
-          :scroll-h="scrollH"
-          :start-date="date[0]"
-          :end-date="date[1]"
-        >
-        </BuyCoinRecord>
-      </van-tab>
-      <van-tab title="退币记录">
-        <BackCoinRecord
-          :scroll-h="scrollH"
-          :start-date="date[0]"
-          :end-date="date[1]"
-        >
-        </BackCoinRecord>
-      </van-tab>
-    </van-tabs>
+    </NrzTabs>
+    <ChargeRecord
+      v-show="state.initTab == 0"
+      :scroll-h="scrollH"
+      :start-date="date[0]"
+      :end-date="date[1]"
+    ></ChargeRecord>
+    <BuyCoinRecord
+      v-show="state.initTab == 1"
+      :scroll-h="scrollH"
+      :start-date="date[0]"
+      :end-date="date[1]"
+    >
+    </BuyCoinRecord>
+    <BackCoinRecord
+      v-show="state.initTab == 2"
+      :scroll-h="scrollH"
+      :start-date="date[0]"
+      :end-date="date[1]"
+    >
+    </BackCoinRecord>
   </FullLoading>
   <NrzCalendar
     ref="calendar"
@@ -67,8 +63,14 @@ import BuyCoinRecord from './buyCoinRecord.vue';
 import BackCoinRecord from './backCoinRecord.vue';
 import dayjs from 'dayjs';
 import NrzCalendar from '@/components/nrz-calendar/index.vue';
+import NrzTabs from '@/components/nrz-tabs/index.vue';
 
-definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({
+  transparentTitle: 'always',
+  titlePenetrate: 'YES',
+  defaultTitle: '',
+  enablePullDownRefresh: true,
+});
 const { headerHeight } = useHeaderHeight();
 const calendar = ref();
 
@@ -96,7 +98,7 @@ let scrollH = computed(() => {
   );
 });
 function swiperChange(res) {
-  state.initTab = res.detail.current;
+  state.initTab = res.index;
 }
 </script>
 <style lang="scss">

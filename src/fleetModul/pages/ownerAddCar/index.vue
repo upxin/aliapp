@@ -146,7 +146,7 @@
       提交
     </button>
   </section>
-  <van-overlay v-if="params?.type === '3'" :show="show" :z-index="999">
+  <NrzOverlay v-if="params?.type === '3'" :show="show" :z-index="999">
     <div class="flex items-center justify-center w-full h-full">
       <div
         class="flex flex-col items-center rounded-md bg-fff w-280px p-14px px-24px"
@@ -170,10 +170,10 @@
         </nut-button>
       </div>
     </div>
-  </van-overlay>
-  <van-overlay :show="showCropper" :z-index="999">
+  </NrzOverlay>
+  <NrzOverlay :show="showCropper" :z-index="999">
     <Cropper :img-url="oldCarImgUrl" @success="carImgSuccess"></Cropper>
-  </van-overlay>
+  </NrzOverlay>
 </template>
 <script lang="ts">
 import { onShareAppMessage, onShareTimeline } from '@/utils/index';
@@ -212,6 +212,7 @@ import DriverForm from '../../comp/driverForm.vue';
 import DFrom from '../../comp/licenceForm.vue';
 import { useHeaderHeight, useModal } from '@/hooks/index';
 import Cropper from './Cropper.vue';
+import NrzOverlay from '@/components/nrz-overlay/index.vue';
 
 definePageConfig({
  transparentTitle: 'always',

@@ -17,15 +17,13 @@
     </view>
 
     <div class="flex items-center justify-center w-full text-16px">
-      <span>已预定</span>
-      <span class="text-normal text-28px mx-4px nrz-regular"
-        >{{ ' ' }}{{ delivered.day }}</span
-      >
-      <span>天</span>
+      <span class="text-normal text-28px mx-4px nrz-regular">
+        已预定 {{ ' ' }}{{ delivered.days }}{{ ' ' }}天
+      </span>
     </div>
     <div
       v-if="delivered?.cycle"
-      class="text-center text-12px text-normal nrz-thin pb-70px pt-16px"
+      class="text-center text-12px text-normal nrz-thin pb-30px pt-26px"
     >
       {{ delivered.cycle }}
     </div>
@@ -56,6 +54,6 @@ defineProps({
 });
 
 const delivered = computed(() => {
-  return homeStore().state.deliveries;
+  return homeStore().state.currentDeliveries;
 });
 </script>

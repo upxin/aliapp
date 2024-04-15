@@ -3,6 +3,7 @@
     :has-more="hasMore"
     :height="scrollH"
     :pt="0"
+    v-model:loading="loading"
     :init-loading="initLg"
     bg="#fff"
     @scroll-reach-bottom="loadMore"
@@ -86,7 +87,11 @@ import {
 
 import { store } from '@/stores/index';
 
-definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({
+  transparentTitle: 'always',
+  titlePenetrate: 'YES',
+  defaultTitle: '',
+});
 let buyList = ref<any[]>([]);
 let hasMore = ref(false);
 let initLg = ref(true);
@@ -106,7 +111,7 @@ defineProps({
     default: '',
   },
 });
-
+const loading = ref(false);
 function _getWalletBuyOrBackRecord(old) {
   getWalletBuyOrBackRecord({
     pageSize,
@@ -117,6 +122,7 @@ function _getWalletBuyOrBackRecord(old) {
   })
     .then((res) => {
       initLg.value = false;
+      loading.value = false;
 
       if (res?.code !== CODE) return useToast(res?.msg);
       buyList.value = [...old, ...res?.data?.list];

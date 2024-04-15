@@ -17,8 +17,6 @@
     refresher-default-style="black"
     :refresher-background="refreshBg"
     :refresher-triggered="refresherTriggered"
-    @refresherpulling="startPullDown"
-    @refresherrefresh="endPullDown"
     @scrolltolower="scrollReachBottom"
     @scroll="scroll"
   >
@@ -82,12 +80,16 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
 import { systemInfo } from '@/stores/index';
-import { useDidHide } from '@tarojs/taro';
+import { useDidHide, usePullDownRefresh } from '@tarojs/taro';
 import { LOGO_IMG_BOTTOM } from '@/utils/index';
 import NoData from '../noData/index.vue';
 import LOADING from '@/assets/imgs/loading.png';
 import NrImg from '@/components/img/img.vue';
+import Taro from '@tarojs/taro';
 
+definePageConfig({
+  enablePullDownRefresh: true,
+});
 interface Props {
   pt?: number;
   refreshBg?: string;
@@ -133,7 +135,7 @@ watch(
   () => props.loading,
   (v) => {
     if (!v) {
-      endRefresh();
+      Taro.stopPullDownRefresh();
     }
   }
 );
@@ -169,28 +171,13 @@ function scrollReachBottom(res) {
   emits('scrollReachBottom', res);
 }
 
-function startPullDown() {
-  if (refresherTriggered.value === false) {
-    startRefresh();
-  }
-  emits('update:loading', true);
-}
 function startRefresh() {
   refresherTriggered.value = true;
 }
-function endRefresh() {
-  if (refresherTriggered.value == true) {
-    refresherTriggered.value = false;
-  }
-}
 
-function endPullDown() {
-  // 松开下拉
-  emits('endPullDown', endRefresh);
-  setTimeout(() => {
-    // 兜底防止外部不调用done
-    endRefresh();
-  }, 3000);
+function endRefresh() {
+  Taro.stopPullDownRefresh();
+  c;
 }
 
 defineExpose({
@@ -201,6 +188,10 @@ useDidHide(() => {
   scrollTop.value = 20;
 });
 
+usePullDownRefresh(() => {
+  emits('endPullDown', endRefresh);
+  emits('update:loading', true);
+});
 // bottom
 </script>
 <style>

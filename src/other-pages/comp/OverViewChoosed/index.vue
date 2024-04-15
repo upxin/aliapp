@@ -27,9 +27,7 @@
     </div>
     <div class="flex justify-between mt-10px pr-6px mt-34px">
       <span>总价</span>
-      <span>
-        ￥{{ formatThousands(CarConfStore.state.totalPrice || '') }}
-      </span>
+      <span> ￥{{ formatThousands(CarConfStore.state.amount || '') }} </span>
     </div>
   </div>
 </template>
@@ -101,9 +99,10 @@ function _UpdateView() {
   extraMoney.value = extra;
 
   const finalPrice = discount + all + extra;
-
+  if (finalPrice < 0) return;
+  console.log(1234567, discount, all, extra, finalPrice);
   nextTick(() => {
-    CarConfStore.setState('totalPrice', finalPrice);
+    CarConfStore.setState('amount', finalPrice);
   });
 }
 watch(

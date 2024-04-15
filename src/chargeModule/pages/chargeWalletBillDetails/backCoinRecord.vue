@@ -4,6 +4,7 @@
     :pt="0"
     bg="#fff"
     :init-loading="initLg"
+    v-model:loading="loading"
     :height="scrollH"
     @scroll-reach-bottom="loadMore"
     @end-pull-down="refresh"
@@ -51,7 +52,11 @@ import MainScroll from '@/components/scroll-main/index.vue';
 import { onBeforeMount, ref } from 'vue';
 import { getWalletBuyOrBackRecord } from '@/api/index';
 import { CODE, useToast, formatThousands } from '@/utils/index';
-definePageConfig({ transparentTitle: 'always',titlePenetrate: 'YES',defaultTitle: '', });
+definePageConfig({
+  transparentTitle: 'always',
+  titlePenetrate: 'YES',
+  defaultTitle: '',
+});
 let backList = ref<any[]>([]);
 let hasMore = ref(false);
 let initLg = ref(true);
@@ -71,7 +76,7 @@ let props = defineProps({
     default: '',
   },
 });
-
+const loading = ref(false);
 function _getWalletBuyOrBackRecord(old) {
   getWalletBuyOrBackRecord({
     pageSize,
@@ -83,6 +88,7 @@ function _getWalletBuyOrBackRecord(old) {
     .then((res) => {
       if (res?.code !== CODE) return useToast(res?.msg);
       initLg.value = false;
+      loading.value = false;
       backList.value = [...old, ...res?.data?.list];
       pageNum = res.data?.nextPage == 0 ? pageNum : res.data?.nextPage;
       hasMore.value =

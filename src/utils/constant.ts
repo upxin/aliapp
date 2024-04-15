@@ -209,6 +209,7 @@ export class VehColor {
   static 2 = '#F2A93B';
 }
 export enum Routes {
+  carConfig = 'carConfig',
   // noCarCharge
   taskCenter = 'taskCenter',
   chargingOtherCar = 'chargingOtherCar',

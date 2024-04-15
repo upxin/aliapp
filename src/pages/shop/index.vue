@@ -120,7 +120,9 @@ import FullLoading from '@/components/full-loading/index.vue';
 
 import BgImg from '@/components/img/img.vue';
 import { nrNavigateTo, onlineKefu, getStore, USER_INFO } from '@/utils/index';
-
+my.setBackButton({
+  color: '#ffffff',
+});
 useShareAppMessage(() => {
   return {
     title: '前晨商城 好物多多',
@@ -189,11 +191,18 @@ usePageScroll((res) => {
   const cur = +(Math.abs(Math.round(res.scrollTop)) / 200).toFixed(1);
   if (res.scrollTop <= 2) {
     titleColor.value = '#fff';
+    my.setBackButton({
+      color: '#ffffff',
+    });
   } else {
     titleColor.value = `rgba(0,0,0, ${cur})`;
+    my.setBackButton({
+      color: '#000000',
+    });
   }
   opacity.value = cur;
 });
+
 usePullDownRefresh(() => {
   run()
     .then(() => {

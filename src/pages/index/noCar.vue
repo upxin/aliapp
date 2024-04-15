@@ -1,5 +1,5 @@
 <template>
-  <view class="relative bg-blue-200">
+  <view class="relative bg-blue-200 no-car">
     <swiper
       class="h-680px w-full"
       :duration="300"
@@ -112,7 +112,7 @@ function goChargeList() {
   transform: rotateZ(30deg);
   background-color: rgba(255, 255, 255, 100);
 }
-.a-swiper {
+.no-car .a-swiper {
   height: 680px !important;
 }
 </style>

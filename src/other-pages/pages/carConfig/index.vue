@@ -69,7 +69,7 @@
             </div>
             <div class="flex items-center opacity-50 text-10px pt-6px">
               <span class="mr-4px pl-4px">已减去</span>
-              <span>￥{{ formatThousands(discount) }}</span>
+              <span>￥{{ formatThousands(extraMoney) }}</span>
             </div>
           </section>
 
@@ -114,8 +114,10 @@ import {
   jGcustomCount,
   JG,
   useToast,
+  setStore,
+  CAR_CONF,
 } from '@/utils/index';
-import { store, CarConf } from '@/stores/index';
+import { CarConf } from '@/stores/index';
 import CustomBar from '@/components/customHeader/index.vue';
 import OverViewChoosed from '@/other-pages/comp/OverViewChoosed/index.vue';
 import { getCarConfig } from '@/api/index';
@@ -137,11 +139,18 @@ const tabsList = computed<any[]>(() => {
 
 const CarConfStore = CarConf();
 
-const Store = store();
 const loading = ref(true);
 const Params = useRouter().params;
-const discount = computed(() => Store.discount);
-const totalPrice = computed(() => CarConfStore.state.totalPrice);
+const extraMoney = computed(() => {
+  const extra =
+    (CarConfStore.state.extra ?? []).reduce((p, c) => {
+      const c1 = c?.price ?? 0;
+      return p + c1 * 10000;
+    }, 0) / 10000;
+  return extra;
+});
+
+const totalPrice = computed(() => CarConfStore.state.amount);
 const state = reactive({
   currentTab: 0,
   showPrice: false,
@@ -156,10 +165,25 @@ const backHome = () => {
   Taro.navigateBack();
 };
 
+function saveCarConfLocal() {
+  const optional = CarConfStore.state?.optional ?? [];
+  const box = CarConfStore.state.box ? [CarConfStore.state.box] : []; // ec1 have no box
+  const data = {
+    type: CarConfStore.state.type,
+    typeText: CarConfStore.state.typeText,
+    amount: CarConfStore.state.amount,
+    imgUrl: CarConfStore.state.imgUrl,
+    extra: CarConfStore.state.extra,
+    options: [CarConfStore.state.color, ...box, ...optional],
+  };
+  setStore(CAR_CONF, data);
+}
+
 const handleStep = () => {
   state.currentTab = state.currentTab + 1;
   if (state.currentTab === tabsList.value?.length) {
     nrNavigateTo('overview-parts');
+    saveCarConfLocal();
     state.currentTab = state.currentTab - 1;
     return;
   }

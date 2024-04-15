@@ -1,10 +1,10 @@
 <template>
   <view :catch-move="true">
-    <van-overlay
+    <NrzOverlay
       :show="modelValue"
       :z-index="998"
       @click="close_short_buy"
-    ></van-overlay>
+    ></NrzOverlay>
     <view
       :catch-move="true"
       :class="{ slide_up: modelValue, slide_down: !modelValue }"
@@ -113,6 +113,8 @@ import Taro, { usePageScroll } from '@tarojs/taro';
 import { get_sku_info } from '@/api/mall';
 import { useRequest } from '@/hooks/index';
 import BgImg from '@/components/bg-img/bg-img.vue';
+import NrzOverlay from '@/components/nrz-overlay/index.vue';
+
 import {
   diff_arr,
   is_contained,

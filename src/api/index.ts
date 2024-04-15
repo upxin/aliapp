@@ -12,3 +12,4 @@ export * from './invoice';
 export * from './mall';
 export * from './obu';
 export * from './noCarCharging';
+export * from './home'

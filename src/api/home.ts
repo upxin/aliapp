@@ -6,6 +6,13 @@ export function getHomepage(params) {
     params,
   });
 }
+export function inviteSuccess(mobile) {
+  return get({
+    url: `/member/invite/inviteSuccess`,
+    params: { mobile },
+  });
+}
+
 const pp = '/vehicle/remote/getVehCtrState';
 export function getVehCtrState(params) {
   return get<any>({

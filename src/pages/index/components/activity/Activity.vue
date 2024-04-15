@@ -1,6 +1,9 @@
 <template>
-  <van-overlay :show="show" :z-index="999">
-    <div class="flex flex-col items-center justify-center w-full h-full">
+  <NrzOverlay v-model:show="show" :z-index="999">
+    <div
+      class="flex flex-col items-center justify-center w-full h-full"
+      style="width: 100%; height: 100vh"
+    >
       <swiper :circular="true" :current="current" @change="swiperChange">
         <swiper-item
           v-for="k in activityList"
@@ -42,11 +45,12 @@
         "
       ></span>
     </div>
-  </van-overlay>
+  </NrzOverlay>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
 import NrzImg from '@/components/img/img.vue';
+import NrzOverlay from '@/components/nrz-overlay/index.vue';
 import { activity, closeActivity } from '@/api/index';
 import { fetch } from '@/utils/request';
 import { useReady } from '@tarojs/taro';
@@ -117,9 +121,8 @@ let handleActivity = ({ router, id }) => {
 };
 </script>
 <style>
-swiper {
-  width: 100%;
-  height: calc(100vw * 2 / 3);
+.a-swiper {
+  height: 60%;
 }
 .active-img {
   width: 80%;
