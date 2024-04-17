@@ -1,12 +1,14 @@
 <template>
-  <TuiChart
-    ref="tui_line_1"
-    tooltip
-    :xAxis="options1.xAxis"
-    :dataset="options1.dataset"
-    :max="options1.max"
-    :splitNumber="options1.splitNumber"
-  ></TuiChart>
+  <section class="w-full flex justify-center">
+    <TuiChart
+      ref="tui_line_1"
+      tooltip
+      :xAxis="options1.xAxis"
+      :dataset="options1.dataset"
+      :max="options1.max"
+      :splitNumber="options1.splitNumber"
+    ></TuiChart>
+  </section>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';

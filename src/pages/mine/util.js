@@ -88,16 +88,11 @@ let MODULE_CHARGE = 'chargeModule';
 
 export const entryList = [
   {
-    text: '我的车队',
+    text: '我的资产',
     imageUrl: mine_car_team,
     type: 3,
     route: Routes.fleetHome,
     moduleName: Routes.fleetModul,
-  },
-  {
-    text: '所属车队',
-    imageUrl: mine_fleet_car,
-    route: Routes?.belongFleet,
   },
   {
     text: '添加车辆',

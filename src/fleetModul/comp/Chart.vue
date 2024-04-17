@@ -4,38 +4,45 @@
       <div class="pb-4px nrz-thin">{{ title }}</div>
       <div class="bar"></div>
     </div>
-    <view class="box-border w-full h-full">
-      <!-- <ec-canvas :id="id" :canvas-id="`${id}_chart`" :ec="ec"></ec-canvas> -->
+    <view class="box-border w-full h-full flex justify-center">
+      <TuiLineChart
+        ref="chartRef"
+        tooltip
+        :xAxis="opts.xAxis"
+        :dataset="opts.dataset"
+        :max="opts.max"
+        :splitNumber="opts.splitNumber"
+      ></TuiLineChart>
     </view>
   </section>
 </template>
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue';
-// import * as echarts from './ec-canvas/echarts.js';
-interface ChartIns {
-  setOption: (p: any) => void;
-}
+import TuiLineChart from '@/components/tui-charts-line/tui-charts-line.vue';
+
 interface Props {
   opts: any;
   title?: string;
   id: string;
 }
+
+let chartRef = ref();
+
+// let opts = {
+//   xAxis: ['一月', '二月', '三月', '四月', '五月', '六月'],
+//   dataset: [
+//     {
+//       name: '营业额',
+//       color: '#5677fc',
+//       source: [380, 210, 320, 160, 300, 200],
+//     },
+//   ],
+//   max: 600,
+//   splitNumber: 100,
+// };
+
 let props = withDefaults(defineProps<Props>(), { opts: {}, title: '' });
 let chart: any;
-let ec = ref({
-  onInit: initChart,
-});
-function initChart(canvas, width, height, dpr) {
-  chart = echarts.init(canvas, null, {
-    width: width,
-    height: height,
-    devicePixelRatio: dpr, // new
-  }) as ChartIns;
-  console.log(99999999, props.opts);
-
-  chart.setOption(props.opts);
-  return chart;
-}
 watch(
   () => props.opts,
   (v) => {
@@ -50,5 +57,8 @@ watch(
 
 onMounted(() => {
   console.log('mounted');
+});
+onMounted(() => {
+  chartRef.value.draw(opts.dataset);
 });
 </script>

@@ -68,7 +68,7 @@ export function initRightBtnRect() {
 
 export function useToast(title?, duration?) {
   Taro.showToast({
-    title,
+    title: title ?? '异常错误',
     icon: 'none',
     duration: duration ? duration : 3500,
   });

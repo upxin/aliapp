@@ -159,7 +159,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .tui-form__box {
   width: 100%;
   box-sizing: border-box;

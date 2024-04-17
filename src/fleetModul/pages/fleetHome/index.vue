@@ -66,17 +66,19 @@
   <FullLoading :loading="floading" :no-data="!total">
     <div>
       <view :style="{ paddingTop: `${headerHeight}px` }">
-        <div class="flex items-end justify-center text-12px pt-10px">
+        <div class="flex items-end justify-center text-12px pt-20px">
           <span>共</span>
           <span class="text-18px mx-4px">{{ total }}</span>
           <span>辆</span>
         </div>
-        <div class="w-full h-300px">
-          <ec-canvas
-            id="fleetHome"
-            canvas-id="mychart-bar"
-            :ec="ec"
-          ></ec-canvas>
+        <div class="w-full h-300px pl-30rpx box-border pt-20px">
+          <TChartBar
+            tooltip
+            ref="chartRef"
+            :max="maxNum"
+            :splitNumber="splitNumber"
+            :yAxis="['油车', '电车']"
+          ></TChartBar>
         </div>
       </view>
       <div class="flex justify-center my-20px">
@@ -88,7 +90,9 @@
         >
       </div>
       <List :list="list"></List>
-      <div class="text-center nrz-safe nrz-thin text-primary h-60px leading-60px">
+      <div
+        class="text-center nrz-safe nrz-thin text-primary h-60px leading-60px"
+      >
         {{ '--->NEWRIZON<---' }}
       </div>
     </div>
@@ -108,7 +112,7 @@ export default {
 import FullLoading from '@/components/full-loading/index.vue';
 import { onBeforeMount, onMounted, ref } from 'vue';
 import customHeader from '@/components/customHeader/index.vue';
-// import * as echarts from '../../comp/ec-canvas/echarts.js';
+import TChartBar from '@/components/tui-charts-bar/tui-charts-bar.vue';
 import {
   CODE,
   nrNavigateTo,
@@ -116,8 +120,6 @@ import {
   Routes,
   useToast,
   getStore,
-  OIL_COLOR,
-  ELE_COLOR,
   jGcustomCount,
   JG,
 } from '@/utils/index';
@@ -127,29 +129,38 @@ import List from './list.vue';
 import Taro, { usePullDownRefresh, useReachBottom } from '@tarojs/taro';
 
 definePageConfig({
-  usingComponents: {
-    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
-  },
- transparentTitle: 'always',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
-  defaultTitle: '',  enablePullDownRefresh: true,
+  defaultTitle: '',
+  enablePullDownRefresh: true,
 });
+let chartRef = ref();
 let { headerHeight } = useHeaderHeight();
 let showTooltip = ref(false);
-let chart: ChartIns | null;
 let total = ref();
-let ec = ref({
-  onInit: initChart,
-});
 let floading = ref(true);
 let pageNum = 1;
 let pageSize = 5;
 let vehicleType = -1; // 1-电车 2-油车 -1全部
 let hasMore = ref(true);
 let list = ref<any[]>([]);
-interface ChartIns {
-  setOption: (p: any) => void;
-}
+
+let maxNum = ref();
+let splitNumber = ref();
+
+let dataset = [
+  {
+    name: '共',
+    color: '#ccc',
+    source: [],
+  },
+  {
+    name: '在线',
+    color: '#5677fc',
+    source: [],
+  },
+];
+
 function naviToFleetData() {
   let myTeam = getStore(OBU_USER);
   nrNavigateTo(Routes.fleetData, {
@@ -170,93 +181,43 @@ function handleTooltip(type, title?) {
   }
   nrNavigateTo(Routes.ownerAddCar, { type, title });
 }
-function initChart(canvas, width, height, dpr) {
-  chart = echarts.init(canvas, null, {
-    width: width,
-    height: height,
-    devicePixelRatio: dpr, // new
-  }) as ChartIns;
-  return chart;
+
+function getMax(max = 0, k = 5) {
+  if (max <= k) {
+    return k;
+  }
+
+  let rest = max % k;
+  max = max + rest;
+
+  return max;
 }
 function updateChart(res) {
-  const labelOption = {
-    show: true,
-    position: 'left',
-    distance: 0,
-    align: 'left',
-    verticalAlign: 'middle',
-    rotate: 0,
-    formatter: '  {a} {c} 辆',
-    fontSize: 12,
-    rich: {
-      name: {},
+  maxNum.value = Math.max(
+    ...[
+      res?.data?.oilOffline + res?.data?.oilOnline,
+      res?.data?.eleOffline + res?.data?.eleOnline,
+    ]
+  );
+
+  maxNum.value = getMax(maxNum.value, 5);
+  splitNumber.value = maxNum.value / 5;
+  console.log(maxNum.value, splitNumber.value, 7777);
+  return [
+    {
+      name: '共',
+      color: '#ccc',
+      source: [
+        res?.data?.oilOffline + res?.data?.oilOnline,
+        res?.data?.eleOffline + res?.data?.eleOnline,
+      ],
     },
-  };
-  let option = {
-    color: ['#ddd'],
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow',
-      },
+    {
+      name: '在线',
+      color: '#5677fc',
+      source: [res?.data?.oilOnline, res?.data?.eleOnline],
     },
-    grid: {
-      left: '3%',
-      right: '13%',
-      bottom: '3%',
-      containLabel: true,
-    },
-    yAxis: {
-      name: '(车辆类型)',
-      type: 'category',
-      data: ['油车', '电车'],
-    },
-    xAxis: {
-      axisLine: {
-        show: true, //显示坐标轴线
-      },
-      axisTick: {
-        show: true, //显示坐标轴刻度线
-      },
-      name: '(数量)',
-      type: 'value',
-    },
-    series: [
-      {
-        barGap: 0,
-        label: labelOption,
-        barWidth: 24,
-        name: '共',
-        type: 'bar',
-        data: [
-          res?.data?.oilOffline + res?.data?.oilOnline,
-          res?.data?.eleOffline + res?.data?.eleOnline,
-        ],
-      },
-      {
-        barGap: 0,
-        label: labelOption,
-        barWidth: 24,
-        name: '在线',
-        type: 'bar',
-        data: [
-          {
-            value: res?.data?.oilOnline,
-            itemStyle: {
-              color: OIL_COLOR,
-            },
-          },
-          {
-            value: res?.data?.eleOnline,
-            itemStyle: {
-              color: ELE_COLOR,
-            },
-          },
-        ],
-      },
-    ],
-  };
-  chart?.setOption(option);
+  ];
 }
 
 function getParams() {
@@ -289,33 +250,34 @@ function _getVehListMore() {
     hasMore.value = current * size < total;
   });
 }
-usePullDownRefresh(() => {
-  _getVehList();
+
+function getOnline() {
   onlineCars({}).then((res) => {
     if (res?.code !== CODE) return useToast(res?.msg || '接口异常');
     total.value = res?.data?.total;
     setTimeout(() => {
       floading.value = false;
-      updateChart(res);
+      dataset = updateChart(res) as any;
+      chartRef.value.draw(dataset);
     }, 1000);
   });
+}
+usePullDownRefresh(() => {
+  _getVehList();
+  getOnline();
 });
+
 useReachBottom(() => {
   _getVehListMore();
 });
+
 onBeforeMount(() => {
   _getVehList();
 });
+
 onMounted(() => {
   jGcustomCount(JG.BV_002);
-  onlineCars({}).then((res) => {
-    if (res?.code !== CODE) return useToast(res?.msg || '接口异常');
-    total.value = res?.data?.total;
-    setTimeout(() => {
-      floading.value = false;
-      updateChart(res);
-    }, 1000);
-  });
+  getOnline();
 });
 </script>
 <style>

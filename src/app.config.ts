@@ -1,7 +1,5 @@
 export default defineAppConfig({
   pages: [
-    'pages/test/index',
-
     'pages/index/index',
     'pages/mine/index',
     'pages/shop/index',
@@ -44,7 +42,6 @@ export default defineAppConfig({
         'pages/carData/index',
         'pages/carRecord/index',
         'pages/eventLog/index',
-        'pages/belongFleet/index',
         'pages/carScore/index',
         'pages/ownerAddCar/index',
         'pages/addDriver/index',
@@ -85,7 +82,6 @@ export default defineAppConfig({
         'pages/activity/index', // 活动页
         'pages/coupon/index', // 活动页
         // 'pages/cityList/index', // 城市列表
-        // 'pages/car-team-detail/index', // 车队进去的车详情
         'pages/confirmation/index',
         'pages/ranking/index', // 排行
         'pages/shopMap/index', // 门店地址导航
@@ -98,7 +94,6 @@ export default defineAppConfig({
         'pages/carVideoAtlas/index',
         'pages/scoreList/index', // 积分列表
         'pages/webview/index',
-        // 'pages/car-team/index', // 我的车队
         'pages/orderList/index',
         'pages/carOrderList/index', // 车辆订单
         'pages/carOrderDetail/index',

@@ -119,9 +119,6 @@ definePageConfig({
   transparentTitle: 'always',
   titlePenetrate: 'YES',
   defaultTitle: '',
-  usingComponents: {
-    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
-  },
 });
 const datePicker = ref();
 const calendar = ref();
@@ -152,16 +149,6 @@ let grid = {
   bottom: '3%',
   containLabel: true,
 };
-function toolTips(data) {
-  return {
-    trigger: 'axis',
-    formatter(p) {
-      return `能耗：${data?.[p?.[0]?.dataIndex]?.value}\n环比：${
-        data?.[p?.[0]?.dataIndex]?.rate || '--'
-      }%`;
-    },
-  };
-}
 
 let _efficiency = computed(() => {
   let xD = allData.value?.efficiency?.map((item) => {
@@ -171,35 +158,18 @@ let _efficiency = computed(() => {
     return item?.value;
   });
   let option = {
-    grid,
-    xAxis: {
-      type: 'category',
-      data: xD,
-      name: '月',
-    },
-    yAxis: {
-      name: '%',
-      type: 'value',
-    },
-    series: [
+    xAxis: xD,
+    dataset: [
       {
-        itemStyle: {
-          normal: {
-            color: '#F0601F',
-            lineStyle: {
-              width: 2,
-              type: 'dotted', //'dotted'虚线 'solid'实线
-            },
-          },
-        },
-        symbol: 'circle', //将小圆点改成实心 不写symbol默认空心
-        symbolSize: 10,
-        data: yD,
-        type: 'line',
+        name: '营业额',
+        color: '#5677fc',
+        source: yD,
       },
     ],
+    max: 600,
+    splitNumber: 100,
   };
-  console.log(option);
+
   return option;
 });
 

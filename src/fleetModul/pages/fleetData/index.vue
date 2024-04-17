@@ -125,7 +125,7 @@
             }
           "
         >
-          近12个月车队数据
+          近12个月全部数据
         </nut-button>
         <nut-button
           class="rounded px-14px border-primary"
@@ -227,8 +227,26 @@
       </section>
     </section>
     <div class="h-30px bg-fff"></div>
-    <view class="box-border w-full h-300px bg-fff relative">
-      <Chart id="opEfficiency2" class="h-300px bg-fff" :opts="opt2"></Chart>
+    <view class="box-border w-full bg-fff relative flex pl-20px justify-center">
+      <Scatter
+        @click="clickOpt"
+        :legend="options1?.legend"
+        :xAxis="{
+          min: 0,
+          max: 420,
+          splitNumber: 60,
+        }"
+        :xAxisLine="{
+          color: '#e3e3e3',
+          itemGap: 88,
+        }"
+        :yAxis="{
+          min: 0,
+          max: 150,
+          splitNumber: 30,
+        }"
+        ref="scatterRef"
+      ></Scatter>
       <div class="arc-dashed"></div>
       <view
         v-show="show"
@@ -243,7 +261,7 @@
         <span class="text-park">点击查看</span>
       </view>
     </view>
-    <!-- <Chart2 :cid="'scatter'" :oil="scatterOil" :ele="scatterEle"></Chart2> -->
+
     <div class="text-center text-10px pb-20px bg-fff">
       <span class="opacity-50">每个点代表一辆车的里程、时长和速度</span>
     </div>
@@ -268,7 +286,8 @@
 </template>
 <script lang="ts">
 import { onShareAppMessage, onShareTimeline } from '@/utils/index';
-import { useRouter, useReady } from '@tarojs/taro';
+import { useRouter } from '@tarojs/taro';
+import { onMounted } from 'vue';
 export default {
   onShareAppMessage,
   onShareTimeline,
@@ -277,11 +296,9 @@ export default {
 <script lang="ts" setup>
 import FullLoading from '@/components/full-loading/index.vue';
 import HistoryPanel from './HistoryPanel.vue';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import Car from './Car.vue';
-import Chart from '../../comp/Chart.vue';
-
-// import Chart2 from './Chart2.vue';
+import Scatter from '@/components/tui-charts-scatter/tui-charts-scatter.vue';
 import Item from './item.vue';
 import More from './More.vue';
 import Card from './Card.vue';
@@ -297,7 +314,6 @@ import {
   JG,
   nrNavigateTo,
   lineUrl,
-  VehInfo,
 } from '@/utils';
 import { getFleetToday, getFleetHistory, getObuInfo } from '@/api';
 
@@ -308,12 +324,11 @@ interface PropsItem {
   key?: string;
   unit?: string;
 }
+let scatterRef = ref();
+let options1: any = {};
 
 definePageConfig({
-  navigationBarTitleText: '车队数据',
-  usingComponents: {
-    // 'ec-canvas': '../../comp/ec-canvas/ec-canvas',
-  },
+  navigationBarTitleText: '我的资产',
 });
 let time = ref();
 let speed = ref();
@@ -470,76 +485,6 @@ let oilList3 = ref([
 
 let scatterOil = ref([]);
 let scatterEle = ref([]);
-let opt2 = computed(() => {
-  return {
-    xAxis: {
-      name: '时长',
-    },
-    yAxis: {
-      name: '里程',
-    },
-    legend: {
-      data: ['电车', '油车'],
-    },
-    tooltip: {},
-    grid: {
-      left: '30',
-      right: '50',
-      bottom: '30',
-      containLabel: true,
-    },
-    series: [
-      {
-        name: '电车',
-        itemStyle: {
-          normal: {
-            color: VehInfo?.ELE_COLOR,
-          },
-        },
-        tooltip: {
-          trigger: 'item',
-          formatter(params) {
-            mile.value = params?.data?.[1]; // 里程
-            speed.value = params?.data?.[2]; // 速度
-            time.value = params?.data?.[0]; // 时长
-            licensePlateNumber.value = params?.data?.[3]; // 车牌
-            vinCode.value = params?.data?.[4];
-            show.value = true;
-            return '';
-            // return `车牌：${params?.data?.[3]}\n时长：${params?.data?.[0]}\n里程：${params?.data?.[1]}\n速度：${params?.data?.[2]}`;
-          },
-        },
-        symbolSize: 20,
-        data: scatterEle.value,
-        type: 'scatter',
-      },
-      {
-        name: '油车',
-        itemStyle: {
-          normal: {
-            color: VehInfo?.OIL_COLOR,
-          },
-        },
-        tooltip: {
-          trigger: 'item',
-          formatter(params) {
-            mile.value = params?.data?.[1]; // 里程
-            speed.value = params?.data?.[2]; // 速度
-            time.value = params?.data?.[0]; // 时长
-            licensePlateNumber.value = params?.data?.[3]; // 车牌
-            vinCode.value = params?.data?.[4];
-            show.value = true;
-            return '';
-            // return `车牌：${params?.data?.[3]}\n时长：${params?.data?.[0]}\n里程：${params?.data?.[1]}\n速度：${params?.data?.[2]}`;
-          },
-        },
-        symbolSize: 20,
-        data: scatterOil.value,
-        type: 'scatter',
-      },
-    ],
-  };
-});
 function jgUpload(id) {
   if (!id) return;
   jGcustomCount(id);
@@ -558,11 +503,15 @@ function go(id) {
     });
   }
 }
+function clickOpt(v) {
+  console.log(v);
+}
 const regScatter = (res) => {
   scatterOil.value = res?.data?.oil?.detail?.map((item) => {
     return [
-      item?.runTime,
       item?.mileage,
+      item?.runTime,
+      '油车',
       item?.vehicleSpeed,
       item?.licensePlateNumber,
       item?.vinCode,
@@ -570,13 +519,37 @@ const regScatter = (res) => {
   });
   scatterEle.value = res?.data?.ele?.detail?.map((item) => {
     return [
-      item?.runTime,
       item?.mileage,
+      item?.runTime,
+      '电车',
       item?.vehicleSpeed,
       item?.licensePlateNumber,
       item?.vinCode,
     ];
   });
+  options1 = {
+    legend: {
+      show: true,
+      size: 24,
+      color: '#333',
+    },
+    dataset: [
+      {
+        name: '电车',
+        color: '#0DEC64',
+        width: 20,
+        source: scatterEle.value,
+      },
+      {
+        name: '油车',
+        color: '#FB4820',
+        width: 24,
+        source: scatterOil.value,
+      },
+    ],
+  };
+
+  scatterRef.value.draw(options1.dataset);
 };
 // bottom
 function goMonth() {
@@ -585,7 +558,7 @@ function goMonth() {
     vinCode: vinCode.value,
   });
 }
-useReady(() => {
+onMounted(() => {
   jGcustomCount(JG.BV_007);
   let teamId = getStore(OBU_USER)?.teamId;
   getFleetToday({ teamId }).then((res) => {
@@ -691,7 +664,7 @@ page {
   border-radius: 0px 80px 0 0;
   position: absolute;
   bottom: 35px;
-  left: 48px;
+  left: 24px;
   z-index: 1000;
 }
 </style>
