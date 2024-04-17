@@ -1,6 +1,6 @@
 <template>
   <view style="width: 100%; height: 500px">
-    <image-cropper
+    <!-- <image-cropper
       id="image-cropper"
       :limit_move="state.limit_move"
       :disable_rotate="state.disable_rotate"
@@ -14,7 +14,7 @@
       scale="0.5"
       @load="cropperload"
     >
-    </image-cropper>
+    </image-cropper> -->
   </view>
   <view class="bottom nrz-safe">
     <nut-button
@@ -35,11 +35,7 @@
 import Taro, { useRouter, getCurrentInstance } from '@tarojs/taro';
 import { reactive } from 'vue';
 import { store } from '@/stores';
-definePageConfig({
-  usingComponents: {
-    'image-cropper': '../../../components/image-cropper/image-cropper',
-  },
-});
+definePageConfig({});
 const { page = {} } = getCurrentInstance() || {};
 
 let app = Taro.getApp();

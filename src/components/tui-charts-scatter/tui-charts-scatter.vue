@@ -16,8 +16,9 @@
             lineHeight: (legend.size || 24) + 'rpx',
             color: legend.color || '#333',
           }"
-          >{{ item.name }}</text
         >
+          {{ item.name }}
+        </text>
       </view>
     </view>
     <view
@@ -258,7 +259,7 @@ export default {
       return Array.from(new Array(end + 1).keys()).slice(start);
     },
     init(dataset, xAxisValFormatter) {
-      console.log(dataset,'init========================')
+      console.log(dataset, 'init========================');
       let xTotal = this.xAxis.max - this.xAxis.min;
       let yTotal = this.yAxis.max - this.yAxis.min;
       let xSections = Math.ceil(xTotal / this.xAxis.splitNumber);

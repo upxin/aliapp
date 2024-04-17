@@ -1,5 +1,9 @@
 <template>
-  <view class="tui-container" @touchmove.stop.prevent="stop">
+  <view
+    class="tui-container"
+    @touchmove.stop.prevent="stop"
+    style="touch-action: none"
+  >
     <view
       class="tui-image-cropper"
       @touchend="cutTouchEnd"
@@ -72,8 +76,8 @@
         @touchmove="move"
         @touchend="end"
         :style="{
-          width: imgWidth ? imgWidth + 'px' : 'auto',
-          height: imgHeight ? imgHeight + 'px' : 'auto',
+          width: 'auto',
+          height: 'auto',
           transform: imgTransform,
           transitionDuration: (cutAnimation ? 0.35 : 0) + 's',
         }"
@@ -104,10 +108,11 @@
 
 <script>
 import Taro from '@tarojs/taro';
+import { emit } from 'process';
 
 export default {
   name: 'tuiImageCropper',
-  emits: ['ready', 'cropper', 'imageLoad'],
+  emits: ['ready', 'cropper', 'imageLoad', 'close'],
   props: {
     //图片路径
     imageUrl: {
@@ -376,7 +381,6 @@ export default {
     },
   },
   mounted() {
-    console.log(99999999);
     this.sysInfo = Taro.getSystemInfoSync();
     console.log(this.sysInfo, '9========');
     this.imgTop = this.sysInfo.windowHeight / 2;
@@ -431,11 +435,6 @@ export default {
         this.ctx.translate(xpos * this.scaleRatio, ypos * this.scaleRatio);
         this.ctx.rotate((this.angle * Math.PI) / 180);
         let imgUrl = this.imageUrl;
-        // #ifdef APP-PLUS || MP-WEIXIN
-        if (~this.imageUrl.indexOf('https:')) {
-          imgUrl = await this.getLocalImage(this.imageUrl);
-        }
-        // #endif
         this.ctx.drawImage(
           imgUrl,
           -imgWidth / 2,
@@ -447,15 +446,9 @@ export default {
           let params = {
             width: this.canvasWidth * this.scaleRatio,
             height: Math.round(this.canvasHeight * this.scaleRatio),
-            // #ifdef MP-QQ
-            destWidth: this.canvasWidth * this.scaleRatio * 2,
-            destHeight: Math.round(this.canvasHeight) * this.scaleRatio * 2,
-            // #endif
 
-            // #ifndef MP-QQ
             destWidth: this.canvasWidth * this.scaleRatio,
             destHeight: Math.round(this.canvasHeight) * this.scaleRatio,
-            // #endif
 
             fileType: this.fileType || 'png',
             quality: this.quality,
@@ -466,7 +459,6 @@ export default {
             width: this.canvasWidth * this.scaleRatio,
             height: this.canvasHeight * this.scaleRatio,
           };
-          // #ifdef MP-ALIPAY
           if (this.isBase64) {
             this.ctx.toDataURL(params).then((dataURL) => {
               data.base64 = dataURL;
@@ -507,7 +499,6 @@ export default {
               },
             });
           }
-          // #endif
         });
       };
       if (
@@ -1018,7 +1009,7 @@ export default {
     },
     stop() {},
     back() {
-      Taro.navigateBack();
+      this.$emit('close');
     },
     setAngle() {
       this.cutAnimation = true;

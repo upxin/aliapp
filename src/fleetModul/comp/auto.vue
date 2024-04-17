@@ -69,12 +69,14 @@ let state = reactive({
 });
 
 const paserFrontImg = () => {
-  Taro.chooseMedia({
+  Taro.chooseImage({
     count: 1,
     sizeType: ['compressed'],
     sourceType: ['album', 'camera'],
     success(res) {
-      const tempFilePaths = res?.tempFiles?.[0]?.tempFilePath;
+      console.log(res, 9999);
+
+      const tempFilePaths = res?.tempFilePaths?.[0]
       state.frontImg = tempFilePaths;
 
       Taro.getFileInfo({
@@ -96,12 +98,12 @@ const paserFrontImg = () => {
   });
 };
 const paserBackImg = () => {
-  Taro.chooseMedia({
+  Taro.chooseImage({
     count: 1,
     sizeType: ['compressed'],
     sourceType: ['album', 'camera'],
     success(res) {
-      const tempFilePaths = res?.tempFiles?.[0]?.tempFilePath;
+      const tempFilePaths = res?.tempFilePaths?.[0]
       state.backImg = tempFilePaths;
       parseLisence({
         file: tempFilePaths,

@@ -1,8 +1,8 @@
 <template>
   <CustomBar background-color="#fff" :z="998">
-    <template #title>{{
-      params?.type === '3' ? 'OBU推广' : '成为车主'
-    }}</template>
+    <template #title>
+      {{ params?.type === '3' ? 'OBU推广' : '成为车主' }}
+    </template>
     <template v-if="params?.type === '3'" #customLeft>
       <span @click="navitoRecords">推广记录</span>
     </template>
@@ -171,9 +171,20 @@
       </div>
     </div>
   </NrzOverlay>
-  <NrzOverlay :show="showCropper" :z-index="999">
-    <Cropper :img-url="oldCarImgUrl" @success="carImgSuccess"></Cropper>
-  </NrzOverlay>
+  <Cropper
+    v-show="showCropper"
+    :width="state.width"
+    :height="state.height"
+    :imageUrl="oldCarImgUrl"
+    lockWidth
+    lock-height
+    :quality="0.3"
+    lockRatio
+    limitMove
+    @close="showCropper = false"
+    @cropper="carImgSuccess"
+  >
+  </Cropper>
 </template>
 <script lang="ts">
 import { onShareAppMessage, onShareTimeline } from '@/utils/index';
@@ -211,15 +222,21 @@ import Auto from '../../comp/auto.vue';
 import DriverForm from '../../comp/driverForm.vue';
 import DFrom from '../../comp/licenceForm.vue';
 import { useHeaderHeight, useModal } from '@/hooks/index';
-import Cropper from './Cropper.vue';
+import Cropper from '@/components/tui-cropper/tui-cropper.vue';
+
 import NrzOverlay from '@/components/nrz-overlay/index.vue';
+let state = reactive({
+  src: '',
+  width: 240, //宽度
+  height: 180, //高度
+  carImg: '',
+});
 
 definePageConfig({
- transparentTitle: 'always',
+  transparentTitle: 'always',
   titlePenetrate: 'YES',
-  defaultTitle: '',  usingComponents: {
-    'image-cropper': '../../../components/image-cropper/image-cropper',
-  },
+  defaultTitle: '',
+  allowsBounceVertical: 'NO',
 });
 const { headerHeight } = useHeaderHeight();
 // bottom
@@ -231,17 +248,12 @@ let list = [
   '前晨OBU最终解释权归前晨汽车所有，以OBU推广之名违反国家法律的一切行为推广人员应承担相应的法律责任。',
 ];
 let oldCarImgUrl = ref('');
-let canvasW = ref(300);
-let canvasH = ref(300);
 let showCropper = ref(false);
 let backData = ref();
 let frontData = ref();
 let params = useRouter()?.params;
 let type = ref(1);
 let vehicleImg = ref<any>('');
-let state = reactive({
-  carImg: '',
-});
 let show = ref(true);
 let delay = ref(10);
 let driverForm = ref();
@@ -251,18 +263,11 @@ let ownerData = reactive({
   mainAccount: '',
 });
 let ownerForm = ref();
-let canvas;
-function setCanvasWH({ w, h }) {
-  let ctx = canvas.getContext('2d');
-  let dpr = my.getSystemInfoSync().pixelRatio;
-  canvasW.value = w;
-  canvasH.value = h;
-  // ctx.scale(dpr, dpr);
-}
-function carImgSuccess(url) {
-  state.carImg = url;
+function carImgSuccess(e) {
+  state.carImg = e.url;
+  console.log('success', e);
   uploadFile({
-    file: url,
+    file: e.url,
     type: 'vehicle',
   }).then((res) => {
     console.log('vehicleImg', res);
@@ -271,19 +276,18 @@ function carImgSuccess(url) {
   });
 }
 function paserCarImg() {
-  Taro.chooseMedia({
+  Taro.chooseImage({
     count: 1, //只传一张
-    mediaType: ['image'],
     sizeType: ['compressed'], //原图质量好，然后通过canvas压缩，缩略图压缩就太糊了
     sourceType: ['album', 'camera'], // 来源是相册和相机
     success: (res) => {
-      console.log('choose', res);
-      let imgSrc = res?.tempFiles?.[0]?.tempFilePath; //原图的路径
+      let imgSrc = res?.tempFilePaths?.[0]; //原图的路径
       oldCarImgUrl.value = imgSrc;
       showCropper.value = true;
     },
   });
 }
+
 const delCarImg = () => {
   useModal({
     title: '提醒',
@@ -433,19 +437,6 @@ onMounted(() => {
   timer = setInterval(() => {
     if (delay.value === 0) return clearInterval(timer);
     delay.value = delay.value - 1;
-  }, 1000);
-});
-useReady(() => {
-  setTimeout(() => {
-    const query = my.createSelectorQuery();
-    query
-      .select('#zipCanvas')
-      .fields({ node: true, size: true, id: true })
-      .exec((res) => {
-        console.log(res);
-        let { node } = res[0];
-        canvas = node;
-      });
   }, 1000);
 });
 </script>
